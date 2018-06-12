@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.4</CastTime>
+  <CoolDown>0</CoolDown>
+  <ActiveTime>0</ActiveTime>
+  <AttackRange>2.5</AttackRange>
+  <AggroRange>1</AggroRange>
+  <UseDps>false</UseDps>
+  <AllowRetarget>true</AllowRetarget>
+  <RequiresTarget>true</RequiresTarget>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Actor</Target>
+    <Target>Cloaked</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope Target="Other" TargetFriendly="false" TargetAir = "false" TargetCommander="false">
+        <Action Type="DamageInstant" Value="0.5"/>
+      </Scope>
+      <Scope TileRadius="1.75" TargetFriendly="false" TargetAir = "false">
+        <Action Type="DamageInstant" Value="0.5"/>
+      </Scope>
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/landmine/explode" Value="1"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineCenterPSystem"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="0,0,1"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="0,0,-1"/>
+        
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="1,0,1"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="1,0,0"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="1,0,-1"/>
+
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="-1,0,1"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="-1,0,0"/>
+        <Action Type="CreateParticleSystem" Data="weapLandmineAreaPSystem" Offset="-1,0,-1"/>
+
+      </Scope>
+      <Scope FlatGroundOnly="true">
+        <Action Type="CreateDecal" Data="Blastmark"/>
+      </Scope>
+      <Scope TileRadius="0" TargetRemovableDecor="true">
+        <Action Type="Remove"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="Remove"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCast">
+      <Scope Target="Parent">
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/landmine/trigger" Value="1"/>
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

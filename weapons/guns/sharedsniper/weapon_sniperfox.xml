@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.2</CastTime>
+  <CoolDown>1.8</CoolDown>
+  <MovementCooldown>0.4</MovementCooldown>
+  <ClipSize>2</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <AttackRange>8</AttackRange>
+  <AggroRange>8</AggroRange>
+  <AllowRetarget>false</AllowRetarget>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/fox/sfx/sniper_fire" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCast">
+      <Scope Target="Other">
+        <Action Type="CreateDecal" Data="preview_sniperfox" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnReload">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/fox/sfx/sniper_reload" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>40</Speed>
+    <Range>8</Range>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Texture Path="bullets" Name="tracer_sniper"/>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashLargeEmitter"/>
+          <Action Type="CreateParticleSystem" Data="TracerSniperTrailEmitter" Attach="true"/>
+          <Action Type="CreateParticleSystem" Data="BulletCasingLargeEmitter"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other" TargetActors="true" TargetStructures="false">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope Target="Other" TargetStructures="false">
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        </Scope>
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/fox/sfx/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

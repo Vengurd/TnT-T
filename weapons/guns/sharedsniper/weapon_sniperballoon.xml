@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>2</CoolDown>
+  <MovementCooldown>.25</MovementCooldown>
+  <ClipSize>1</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <AttackRange>12</AttackRange>
+  <AggroRange>12</AggroRange>
+  <AllowRetarget>false</AllowRetarget>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/balloon/fire" Value="1"/>
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCast">
+      <Scope Target="Other">
+        <Action Type="CreateDecal" Data="preview_sniperballoon" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnReload">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/balloon/reload" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>30</Speed>
+    <Range>12</Range>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Texture Path="bullets" Name="tracer_sniper"/>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashLargeEmitter"/>
+          <Action Type="CreateParticleSystem" Data="TracerSniperTrailEmitter" Attach="true"/>
+          <Action Type="CreateParticleSystem" Data="BulletCasingLargeEmitter"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other" TargetActors="true" TargetStructures="false">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope Target="Other" TargetStructures="false">
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        </Scope>
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/balloon/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

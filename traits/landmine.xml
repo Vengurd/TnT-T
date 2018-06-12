@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Landmine</DisplayName>
+  <Description>Detonates on collision after 0.25 seconds. Cannot be seen. Can be built anywhere!</Description>
+  <Weapon>weapon_landmine</Weapon>
+  <Visibility>4</Visibility>
+  <Proxy>true</Proxy>
+  <Cloak>
+    <AllowEntryInterrupt>true</AllowEntryInterrupt>
+    <AllowExitInterrupt>true</AllowExitInterrupt>
+    <EntryTime>0</EntryTime>
+    <ExitTime>0</ExitTime>
+  </Cloak>
+  <Buried>
+    <AllowEntryInterrupt>true</AllowEntryInterrupt>
+    <AllowExitInterrupt>true</AllowExitInterrupt>
+    <EntryTime>0</EntryTime>
+    <ExitTime>0</ExitTime>
+  </Buried>
+</TraitData>

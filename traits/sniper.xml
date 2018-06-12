@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Sniper</DisplayName>
+  <Description>6 range. Has +4 vision. Cannot target structures.</Description>
+  <Weapon>weapon_sniper</Weapon>
+</TraitData>

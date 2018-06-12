@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>0.1</CoolDown>
+  <ClipSize>1</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <IdleTime>0.05</IdleTime>
+  <AttackRange>4</AttackRange>
+  <AggroRange>4</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+    </Event>
+    <Event Type="OnWeaponStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/defense/machinegun/fire" Value="1" Lookahead="0"/>
+      </Scope>
+    </Event>
+    <Event Type="OnWeaponStop">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/defense/machinegun/fire" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>20</Speed>
+    <Range>8</Range>
+    <Texture Path="bullets" Name="tracer_pistol"/>
+    <Collide>true</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashLargeEmitter"/>
+          <Action Type="CreateParticleSystem" Data="BulletCasingMGEmitter"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope Target="Other" TargetActors="false">
+          <Action Type="CreateParticleSystem" Data="StructureDamageEmitter"/>
+        </Scope>
+        <Scope Target="Other" TargetStructures="false">
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        </Scope>
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/machinegun/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

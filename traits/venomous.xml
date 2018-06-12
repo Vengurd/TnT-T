@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Venomous</DisplayName>
+  <Description>Spits a stacking poison at range that deals 1 damage per second for 15 seconds.</Description>
+  <Weapon>weapon_venom</Weapon>
+</TraitData>

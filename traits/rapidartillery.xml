@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Artillery</DisplayName>
+  <Description>Does 3x3 damage to ground targets at 8 range after a delay. +1 vision.</Description>
+  <Weapon>weapon_rapidartillery</Weapon>
+</TraitData>

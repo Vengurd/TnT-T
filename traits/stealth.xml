@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Stealth</DisplayName>
+  <Description>Cannot be seen or targeted by opponents unless attacking.</Description>
+  <Cloak>
+    <AllowEntryInterrupt>true</AllowEntryInterrupt>
+    <AllowExitInterrupt>false</AllowExitInterrupt>
+    <EntryTime>0.25</EntryTime>
+    <ExitTime>0.25</ExitTime>
+    <StartsActive>true</StartsActive>
+  </Cloak>
+</TraitData>

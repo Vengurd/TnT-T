@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.3</CastTime>
+  <CoolDown>1</CoolDown>
+  <ActiveTime>0</ActiveTime>
+  <AttackRange>1</AttackRange>
+  <AggroRange>4</AggroRange>
+  <UseDps>false</UseDps>
+  <RequiresReservation>false</RequiresReservation>
+  <AllowRetarget>true</AllowRetarget>
+  <RequiresTarget>true</RequiresTarget>
+  <CanAdjustSimulationSpeed>false</CanAdjustSimulationSpeed>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Actor</Target>
+    <Target>Structure</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnCast">
+      <Scope>
+        <Action Type="PlayAnimation" Data="cast"/>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/actors/t1/toad/sfx/fuse" Value="1"/>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivate">
+      <Scope Target="Parent">
+        <Action Type="Die"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/toad/sfx/explode" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/actors/t1/toad/sfx/fuse"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Lifetime>0.25</Lifetime>
+    <Collide>false</Collide>
+    <Homing>false</Homing>
+    <AttenuateLifetime>false</AttenuateLifetime>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <RemoveOnParentDeath>true</RemoveOnParentDeath>
+    <Events>
+      <Event Type="OnDeath">
+        <Scope TileRadius="0" TargetFriendly="false" TargetAir = "false" TargetActors="false" MaxAffected="1">
+          <Action Type="DamageInstant" Data="Crit" Value="1"/>
+        </Scope>
+        <Scope TileRadius="1.75" TargetFriendly="false" TargetAir = "false" TargetActors="false">
+          <Action Type="DamageInstant" Data="Crit" Value="1"/>
+        </Scope>
+        <Scope TileRadius="0" TargetFriendly="false" TargetAir = "false" TargetStructures="false" MaxAffected="1">
+          <Action Type="DamageInstant" Data="Explosion" Value="0.5"/>
+        </Scope>
+        <Scope TileRadius="1.75" TargetFriendly="false" TargetAir = "false" TargetStructures="false">
+          <Action Type="DamageInstant" Data="Explosion" Value="0.5"/>
+        </Scope>
+        <Scope TileRadius="0" TargetRemovableDecor="true">
+          <Action Type="Remove"/>
+        </Scope>
+        <Scope Target="Other">
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,-1"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,0"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,1"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,-1"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,0"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,1"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,-1"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,0"/>
+          <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,1"/>
+        </Scope>
+        <Scope FlatGroundOnly="true">
+          <Action Type="CreateDecal" Data="Blastmark"/>
+        </Scope>
+        <Scope TileRadius="0" TargetRemovableDecor="true">
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

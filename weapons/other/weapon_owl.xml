@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.25</CastTime>
+  <CoolDown>0.75</CoolDown>
+  <ClipSize>3</ClipSize>
+  <ReloadTime>7</ReloadTime>
+  <MovementCooldown>0</MovementCooldown>
+  <ActiveTime>0</ActiveTime>
+  <AttackRange>0</AttackRange>
+  <AggroRange>0</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>BarbedWire</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnCast">
+      <Scope Target="Parent">
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/owl/sfx/puke" Value="1"/>
+        <Action Type="PlayAnimation" Data="heave"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivate">
+      <Scope Target="Parent">
+        <Action Type="CreateParticleSystem" Data="weapOwlVomitPSystem"/>
+        <Action Type="PlayAnimation" Data="produce"/>
+        <Action Type="SpawnUnit" Data="mouse"/>
+      </Scope>
+    </Event>
+    <Event Type="OnTimer" Time="0.1">
+      <Scope TargetNeutral="false">
+        <Action Type="Cast"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

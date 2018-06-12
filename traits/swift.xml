@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Swift</DisplayName>
+  <Description>Moves twice as fast.</Description>
+  <Speed>4</Speed>
+  <Acceleration>40</Acceleration>
+</TraitData>

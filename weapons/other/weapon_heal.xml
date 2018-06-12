@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>2</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <ActiveTime>0</ActiveTime>
+  <AttackRange>1</AttackRange>
+  <AggroRange>4</AggroRange>
+  <FreezeMovement>false</FreezeMovement>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Actor</Target>
+    <Target>Cloaked</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Lifetime>0.25</Lifetime>
+    <Range>4</Range>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Sprites>
+      <Sprite FrameWidth="5" FrameHeight="5">
+        <Texture Path="bullets" Name="bullet_medkit"/>
+        <TintMap Path="bullets" Name="bullet_medkit_tint"/>
+        <Pivot>0,0</Pivot>
+        <Animations>
+          <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.2" Angle="0"/>
+        </Animations>
+      </Sprite>
+    </Sprites>
+    <Events>
+      <Event Type="OnDeath">
+        <Scope>
+          <Action Type="Remove"/>
+        </Scope>
+        <Scope Target="Other">
+          <Action Type="CreateParticleSystem" Data="HealTargetEmitter"/>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/pigeon/sfx/aid" Value="1"/>
+          <Action Type="StatusEffect" Data="status_healing" Time="2"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Flying</DisplayName>
+  <Description>Is flying, duh. Has +2 vision.</Description>
+  <VisibilityBonus>2</VisibilityBonus>
+  <Flying>
+    <AllowEntryInterrupt>true</AllowEntryInterrupt>
+    <AllowExitInterrupt>true</AllowExitInterrupt>
+    <EntryTime>0</EntryTime>
+    <ExitTime>0</ExitTime>
+    <StartsActive>true</StartsActive>
+  </Flying>
+</TraitData>

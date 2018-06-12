@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Medic</DisplayName>
+  <Description>Heal an ally unit at melee range for ATK value. Does not attack.</Description>
+  <Behaviors>
+    <Heal RallyDelay="true">
+      <Weapon>weapon_heal</Weapon>
+    </Heal>
+  </Behaviors>
+</TraitData>

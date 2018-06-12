@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Summon</DisplayName>
+  <Description>Spawns directly to the battlefield.</Description>
+  <Proxy>true</Proxy>
+  <Summon>true</Summon>
+  <RemoveOnProduce>true</RemoveOnProduce>
+</TraitData>

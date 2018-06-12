@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Pistol</DisplayName>
+  <Description>Attacks ground and FLYING targets at a distance.</Description>
+  <Behaviors>
+    <Defend InactiveDuringRally="false">
+      <Weapon>weapon_pistolpig</Weapon>
+    </Defend>
+  </Behaviors>
+  </TraitData>

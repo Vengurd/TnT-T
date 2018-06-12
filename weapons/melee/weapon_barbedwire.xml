@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>0</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <ActiveTime>0.1</ActiveTime>
+  <AttackRange>8</AttackRange>
+  <AggroRange>8</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Actor</Target>
+    <Target>Commander</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/defense/barbedwire/wiggle" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivateContinuous">
+      <Scope TileRadius="1.75" TargetFriendly="false" TargetAir="false" TargetCommander="false" TargetNonSimulated="false">
+        <Action Type="Damage" Data="BARBEDWIRE" Value="10"/>
+        <Action Type="Damage" Data="BARBEDWIRE" Value="10" TargetOther="Parent"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+        <Action Type="CreateParticleSystem" Data="BarbedWireSpikeEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFinishActivating">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/shared/flamethrower"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

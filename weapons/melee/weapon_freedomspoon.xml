@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.25</CastTime>
+  <CoolDown>0.75</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <AttackRange>1</AttackRange>
+  <AggroRange>4</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>BarbedWire</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnCast">
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/mole/sfx/hammer" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivate">
+      <Scope Target="Other">
+        <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+      </Scope>
+      <Scope Target="Other" TargetStructures="false">
+        <Action Type="Damage" Data="Melee" Value="1"/>
+      </Scope>
+      <Scope Target="Other" TargetActors="false">
+        <Action Type="Damage" Data="Crit" Value="2"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

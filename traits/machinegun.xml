@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Machine Gun</DisplayName>
+  <Description>Rapidly attacks enemies.</Description>
+  <Weapon>weapon_machinegun</Weapon>
+</TraitData>

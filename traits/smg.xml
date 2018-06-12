@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Submachine Gun</DisplayName>
+  <Description>Rapidly fires for 1.75 seconds, before reloading for .25 seconds.</Description>
+  <Weapon>weapon_smg</Weapon>
+</TraitData>

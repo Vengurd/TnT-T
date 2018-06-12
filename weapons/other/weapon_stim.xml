@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>0.5</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <ActiveTime>1.5</ActiveTime>
+  <AggroRange>4</AggroRange>
+  <AttackRange>4</AttackRange>
+  <FreezeMovement>false</FreezeMovement>
+  <AimAtTarget>false</AimAtTarget>
+  <Texture Path="status-effects" Name="stim"/>
+  <CanAdjustSimulationSpeed>false</CanAdjustSimulationSpeed>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Flying</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnCast">
+      <Scope Target="Parent">
+        <Action Type="PlayVocalSound" Data="shout" Value="0"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivate">
+      <Scope Target="Other">
+        <Action Type="StatusEffect" Data="status_stim" Time="11.95" />
+        <Action Type="CreateParticleSystem" Data="StimEmitter" Attach="true"/>
+        <Action Type="PlaySoundOff" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet/>
+</WeaponData>

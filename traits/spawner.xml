@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Spawner</DisplayName>
+  <Description>Spawns mice every 5 seconds.</Description>
+  <Weapon>weapon_owl</Weapon>
+</TraitData>

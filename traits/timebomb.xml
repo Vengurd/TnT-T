@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Time Bomb</DisplayName>
+  <Description>Self destructs for 3x3 area damage</Description>
+  <Weapon>weapon_timebomb</Weapon>
+</TraitData>

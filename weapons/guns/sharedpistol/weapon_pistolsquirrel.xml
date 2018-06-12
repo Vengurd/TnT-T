@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>1</CoolDown>
+  <MovementCooldown>.25</MovementCooldown>
+  <ClipSize>1</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <AttackRange>4</AttackRange>
+  <AggroRange>4</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnCast">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/squirrel/sfx/pistol" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>20</Speed>
+    <Range>4</Range>
+    <Texture Path="bullets" Name="tracer_pistol"/>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashEmitter"/>
+          <Action Type="CreateParticleSystem" Data="BulletCasingSmallEmitter"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope Target="Other" TargetActors="false">
+          <Action Type="CreateParticleSystem" Data="StructureDamageEmitter"/>
+        </Scope>
+        <Scope Target="Other" TargetStructures="false">
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        </Scope>
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/squirrel/sfx/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

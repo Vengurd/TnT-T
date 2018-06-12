@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.25</CastTime>
+  <CoolDown>0.75</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <ClipSize>1</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <AttackRange>3</AttackRange>
+  <AggroRange>5</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/lizard/sfx/slice" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>30</Speed>
+    <Range>3</Range>
+    <Texture Path="bullets" Name="thrownspear"/>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnDeath">
+        <Scope Target="Other">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope Target="Other" TargetActors="false">
+          <Action Type="CreateParticleSystem" Data="StructureDamageEmitter"/>
+        </Scope>
+        <Scope Target="Other" TargetStructures="false">
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        </Scope>
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/other/pig/sfx/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

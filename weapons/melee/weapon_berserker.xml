@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0.25</CastTime>
+  <CoolDown>0.75</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <AttackRange>1</AttackRange>
+  <AggroRange>8</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>BarbedWire</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope Target="Other">
+        <Action Type="Damage" Data="Melee" Value="1"/>
+        <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/other/mouse/sfx/claw" Value="1"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

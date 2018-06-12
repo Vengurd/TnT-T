@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>1</CoolDown>
+  <MovementCooldown>.25</MovementCooldown>
+  <AttackRange>4</AttackRange>
+  <AggroRange>4</AggroRange>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t2/snake/sfx/poison_spit" Value="1"/>
+      </Scope>
+      <Scope Target="Parent">
+        <Action Type="PlayAnimation" Data="attack"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Bullet>
+    <Speed>20</Speed>
+    <Range>4</Range>
+    <Texture Path="bullets" Name="tracer_venom"/>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashSnakeEmitter"/>
+          <Action Type="CreateParticleSystem" Data="TracerVenomTrailEmitter" Attach="true"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other" TargetCommander="true">
+          <Action Type="Damage" Data="Bullet" Time="0.01"/>
+          <Action Type="StatusEffect" Data="status_poisoned" Time="1000"/>
+        </Scope>
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="weapVenomPSystem"/>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t2/snake/sfx/poison_hit" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>

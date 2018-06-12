@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>0.1</CoolDown>
+  <MovementCooldown>0</MovementCooldown>
+  <CoolDownMax>0.5</CoolDownMax>
+  <CoolDownWarmUpTime>6</CoolDownWarmUpTime>
+  <CooldownWarmDownTime>2</CooldownWarmDownTime>
+  <IdleTime>0.05</IdleTime>
+  <ClipSize>1</ClipSize>
+  <ReloadTime>0</ReloadTime>
+  <AttackRange>4</AttackRange>
+  <AggroRange>4</AggroRange>
+  <FreezeMovement>false</FreezeMovement>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+    <Target>Flying</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireCooldownBullet" Value="1" Data="bullet_minigun"/>
+      </Scope>
+    </Event>
+    <Event Type="OnWarmedUp">
+      <Scope Target="Parent">
+        <Action Type="PlayVocalSound" Data="gun_laugh"/>
+      </Scope>
+    </Event>
+  </Events>
+</WeaponData>

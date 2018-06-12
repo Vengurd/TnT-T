@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Minigun</DisplayName>
+  <Description>Fires slowly, but reaches full damage over 4 seconds.</Description>
+  <Weapon>weapon_minigun</Weapon>
+</TraitData>

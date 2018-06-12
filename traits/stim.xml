@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Stim</DisplayName>
+  <Description>Buffs an allied structure or unit to operate twice as fast for 8 seconds. Cooldown 2 seconds. Does not buff self.</Description>
+  <Behaviors>
+    <Stim RallyDelay="true">
+      <Weapon>weapon_stim</Weapon>
+    </Stim>
+  </Behaviors>
+</TraitData>

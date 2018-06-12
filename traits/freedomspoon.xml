@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Freedom Spoon</DisplayName>
+  <Description>Attacks ground targets with melee.</Description>
+  <Weapon>weapon_freedomspoon</Weapon>
+</TraitData>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Grenade</DisplayName>
+  <Description>Creates poisonous gas that does 3 damage to units per second. Last 15 seconds. Cannot target structures.</Description>
+  <Weapon>weapon_grenade</Weapon>
+</TraitData>

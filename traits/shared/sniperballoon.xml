@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Sniper</DisplayName>
+  <Description>12 range. Has +12 vision. Cannot target structures.</Description>
+  <Weapon>weapon_sniperballoon</Weapon>
+  <VisibilityBonus>12</VisibilityBonus>
+</TraitData>

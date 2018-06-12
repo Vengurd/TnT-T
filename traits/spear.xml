@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Spear Throw</DisplayName>
+  <Description>Attacks ground and FLYING targets at 2 range.</Description>
+  <Weapon>weapon_spear</Weapon>
+</TraitData>

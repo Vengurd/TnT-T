@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Pistol</DisplayName>
+  <Description>Attacks ground and FLYING targets at a 4 range.</Description>
+  <Weapon>weapon_pistolsquirrel</Weapon>
+</TraitData>

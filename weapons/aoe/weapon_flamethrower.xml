@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponData>
+  <CastTime>0</CastTime>
+  <CoolDown>0.1</CoolDown>
+  <IdleTime>0.07</IdleTime>
+  <MovementCooldown>0</MovementCooldown>
+  <BulletSpeed>10</BulletSpeed>
+  <Lifetime>0</Lifetime>
+  <AttackRange>6</AttackRange>
+  <AggroRange>6</AggroRange>
+  <UseDps>false</UseDps>
+  <ValidTargets>
+    <Target>Ground</Target>
+    <Target>Commander</Target>
+    <Target>Actor</Target>
+    <Target>NewStructure</Target>
+    <Target>Structure</Target>
+  </ValidTargets>
+  <Events>
+    <Event Type="OnActivate">
+      <Scope>
+        <Action Type="FireBullet" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnWeaponStart">
+      <Scope Target="Parent">
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/actors/t3/boar/sfx/flamethrower" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnWeaponStop">
+      <Scope Target="Parent">
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/actors/t3/boar/sfx/flamethrower"/>
+      </Scope>
+    </Event>
+ </Events>
+  <Bullet>
+    <Speed>20</Speed>
+    <Range>6</Range>
+    <Collide>false</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnTimer" Time="0.05">
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="TracerFlamethrowerEmitter" Attach="true"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope>
+          <Action Type="CreateDotEffect" Data="napalm" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </Bullet>
+</WeaponData>
