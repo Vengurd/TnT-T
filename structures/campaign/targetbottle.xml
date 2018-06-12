@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>targetbottle</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <CanSell>false</CanSell>
+  <Sprites>
+    <Sprite FrameWidth="9" FrameHeight="9">
+      <Texture Path="structures/campaign" Name="targetbottle"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.08"/>
+        <Animation Name="hit" StartFrame="1" EndFrame="4" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>4,8</Pivot>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>false</BlockMovement>
+</StructureData>

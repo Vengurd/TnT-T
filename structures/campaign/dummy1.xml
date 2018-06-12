@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>dummy1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <CanSell>false</CanSell>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="28" FrameHeight="28">
+      <Texture Path="structures/campaign" Name="dummy1"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.08"/>
+        <Animation Name="hit" StartFrame="1" EndFrame="3" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>13,20</Pivot>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+</StructureData>

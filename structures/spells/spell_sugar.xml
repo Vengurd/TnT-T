@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Sugar_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Sugar_LongName</LongName>
+  <StrategyHint>Fires long range shells that do damage to large groups of ground-based enemies.</StrategyHint>
+  <Description>Unit_Sugar_Description</Description>
+  <!--<Description>After the Operators closed the artillery shell factories, it was thought that the Drumfire cannon would not be a common sight on the front lines. As it turns out, using the bones of your enemies makes decent enough ammunition.</Description>-->
+  <TraitList>Stim</TraitList>
+  <CanBeInDeck>false</CanBeInDeck>
+  <Cooldown>60</Cooldown>
+  <IsSpell>true</IsSpell>
+  <DeckIndex>405</DeckIndex>
+  <CanProxy>true</CanProxy>
+  <CanBuildAnywhere>true</CanBuildAnywhere>
+  <CanTargetWhenBuilt>false</CanTargetWhenBuilt>
+  <Damage>8</Damage>
+  <Health>60</Health>
+  <DecayTime>0</DecayTime>
+  <PlateSize>3</PlateSize>
+  <Traits>
+    <Trait></Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <BuildTime>0</BuildTime>
+  <BuildCost>0</BuildCost>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/artillery/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <PortraitOffset>456,1070</PortraitOffset>
+  <SmallPortraitOffset>228,535</SmallPortraitOffset>
+  <ADPortraitOffset>500, 1000</ADPortraitOffset>
+  <ADPortraitScale>1</ADPortraitScale>
+  <PogTexture Path="atlas" Name="ui" Atlas="spell_sugar"/>
+  <HealthBarYOffset>25</HealthBarYOffset>
+  <Behaviors>
+    <FireOnCommander/>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnSpawn">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_misc" Value="1" MuteForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/airstrike_planes" Value="1"/>
+      </Scope>
+      <Scope Target="Commander">
+        <Action Type="StatusEffect" Data="status_flyingvision" Time="10" />
+        <Action Type="StatusEffect" Data="status_stim" Time="10" />
+        <Action Type="CreateParticleSystem" Data="StimEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnTimer" Time="10">
+      <Scope>
+        <Action Type="Die"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Weapons>
+    <Weapon>
+      <UseDps>false</UseDps>
+      <CastTime>0.2</CastTime>
+      <Events>
+        <Event Type="OnActivate">
+          <Scope>
+            <Action Type="DropBomb" Value="1"/>
+          </Scope>
+        </Event>
+      </Events>
+      <Bullet>
+        <Lifetime>2</Lifetime>
+        <Collide>false</Collide>
+        <Homing>false</Homing>
+        <AttenuateLifetime>false</AttenuateLifetime>
+        <VerticalFireSpeed>0</VerticalFireSpeed>
+        <Gravity>-40</Gravity>
+        <AllowFriendlyFire>false</AllowFriendlyFire>
+        <Texture Path="bullets" Name="tracer_artillery"/>
+        <Events>
+          <Event Type="OnSpawn">
+            <Scope>
+              <Action Type="CreateParticleSystem" Data="TracerArtilleryTrailEmitter" Attach="true"/>
+              <Action Type="CreateDecal" Data="preview_artillery"/>
+            </Scope>
+          </Event>
+          <Event Type="OnLand">
+            <Scope>
+              <Action Type="Die"/>
+            </Scope>
+          </Event>
+          <Event Type="OnDeath">
+            <Scope TileRadius="2" TargetFriendly="false">
+              <Action Type="Damage" Data="Explosion" Value="1"/>
+            </Scope>
+            <Scope>
+              <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/airstrike_impact" Value="1"/>
+              <Action Type="CreateParticleSystem" Data="StructureDeathEmitter" />
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretPSystem" />
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretPSystem" WarpToGround="true" Offset="0,0,0"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="1,0,1"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="1,0,0"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="1,0,-1"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="0,0,1"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="0,0,-1"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="-1,0,1"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="-1,0,0"/>
+              <Action Type="CreateParticleSystem" Data="weapArtilleryTurretAreaPSystem" WarpToGround="true" Offset="-1,0,-1"/>
+              <Action Type="Remove"/>
+            </Scope>
+            <Scope FlatGroundOnly="true">
+              <Action Type="CreateDecal" Data="Blastmark"/>
+            </Scope>
+            <Scope TileRadius="0" TargetRemovableDecor="true">
+              <Action Type="Remove"/>
+            </Scope>
+          </Event>
+        </Events>
+      </Bullet>
+    </Weapon>
+  </Weapons>
+</StructureData>

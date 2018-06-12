@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Barbed Wire</DisplayName>
+  <Description>Slows movement to %50. Deals damage to enemies around it.</Description>
+  <Weapon>weapon_barbedwire</Weapon>
+  <Visibility>8</Visibility>
+  <TargetTypes>
+    <TargetType>BarbedWire</TargetType>
+  </TargetTypes>
+</TraitData>

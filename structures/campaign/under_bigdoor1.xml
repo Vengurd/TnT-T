@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>underground bigdoor 1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <Portal>true</Portal>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="42" FrameHeight="56" SelectRandomGroup="0">
+      <Texture Path="structures/campaign" Name="under_bigdoor1"/>
+      <Pivot>13,31</Pivot>
+      <Animations>
+        
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>false</BlockMovement>
+</StructureData>

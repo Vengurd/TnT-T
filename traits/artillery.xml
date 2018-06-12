@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Artillery</DisplayName>
+  <Description>8 range. Has +1 vision. Ground targets only.</Description>
+  <Weapon>weapon_artillery</Weapon>
+  <VisibilityBonus>1</VisibilityBonus>
+</TraitData>

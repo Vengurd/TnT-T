@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Flamethrower</DisplayName>
+  <Description>Ignites 10 tiles at 4 range. Each tile does ATK value over 1 second.</Description>
+  <Weapon>weapon_flamethrower</Weapon>
+</TraitData>

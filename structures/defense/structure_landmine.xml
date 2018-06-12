@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Landmine_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Landmine_LongName</LongName>
+  <StrategyHint>Once a landmine is built, it can't be seen or destroyed.</StrategyHint>
+  <Description>Unit_Landmine_Description</Description>
+  <TraitList>Unit_Landmine_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>302</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>false</CanStim>
+  <PlateSize>0</PlateSize>
+  <Damage>42</Damage>
+  <Health>5</Health>
+  <Traits>
+    <Trait>proxy</Trait>
+    <Trait>landmine</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <Detector>true</Detector>
+  <DecayTime>0</DecayTime>
+  <BuildTime>10</BuildTime>
+  <BuildCost>20</BuildCost>
+  <BlockMovement>false</BlockMovement>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/landmine/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <Portrait Path="ui/portraits/large" Name="landmine"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="landmine_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="landmine"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="landmine_tint"/>
+  <MenuPortrait Path="ui/portraits/cropped" Name="landmine"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="landmine_tint"/>
+  <PortraitOffset>400,600</PortraitOffset>
+  <SmallPortraitOffset>200,325</SmallPortraitOffset>
+  <ADPortraitOffset>400, 650</ADPortraitOffset>
+  <ADPortraitScale>1</ADPortraitScale>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_landmine"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_landmine_tint"/>
+  <HealthBarYOffset>12</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="24" FrameHeight="24" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_landmine"/>
+      <TintMap Path="structures/gameplay" Name="structure_landmine_tint"/>
+      <MustUseCorrectAngle>true</MustUseCorrectAngle>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="18" EndFrame="20" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="3" EndFrame="3" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="4" EndFrame="7" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>12,15</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="24" FrameHeight="24" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_landmine"/>
+      <TintMap Path="structures/gameplay" Name="structure_landmine_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="1" EndFrame="1" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="21" EndFrame="23" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="8" EndFrame="8" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="9" EndFrame="12" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>12,15</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="24" FrameHeight="24" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_landmine"/>
+      <TintMap Path="structures/gameplay" Name="structure_landmine_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="2" EndFrame="2" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="24" EndFrame="26" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="13" EndFrame="13" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="14" EndFrame="17" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>12,15</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_misc" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/landmine/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_misc" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="expDefensePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_misc"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldSmallPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_MachineGun_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_MachineGun_LongName</LongName>
+  <StrategyHint>A versatile, cheap defensive structure, the machine gun Turret can fend off enemies on ground or in the air.</StrategyHint>
+  <Description>Unit_MachineGun_Description</Description>
+  <TraitList>Unit_MachineGun_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>303</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>true</CanStim>
+  <PlateSize>2</PlateSize>
+  <Damage>8</Damage>
+  <Health>28</Health>
+  <DecayTime>0</DecayTime>
+  <Traits>
+    <Trait>machinegun</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <BuildTime>2</BuildTime>
+  <BuildCost>20</BuildCost>
+  <BlockMovementWhileOperational>true</BlockMovementWhileOperational>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/machinegun/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <Portrait Path="ui/portraits/large" Name="machinegun"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="machinegun_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="machinegun"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="machinegun_tint"/>
+  <PortraitOffset>550,850</PortraitOffset>
+  <SmallPortraitOffset>275,450</SmallPortraitOffset>
+  <ADPortraitOffset>525, 670</ADPortraitOffset>
+  <ADPortraitScale>1</ADPortraitScale>
+  <MenuPortrait Path="ui/portraits/cropped" Name="machinegunturret"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="machinegunturret_tint"/>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_machinegun"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_machinegun_tint"/>
+  <HealthBarYOffset>10</HealthBarYOffset>
+  <Behaviors>
+    <Production ProductionData="mouse" MaxSpawnedAtOnce="2" AlwaysActive="true"/>
+  </Behaviors>
+  <Sprites>
+    <Sprite FrameWidth="36" FrameHeight="36">
+      <Texture Path="structures/gameplay" Name="structure_machinegun"/>
+      <TintMap Path="structures/gameplay" Name="structure_machinegun_tint"/>
+      <MustUseCorrectAngle>true</MustUseCorrectAngle>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" Angle="0" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="1" EndFrame="1" Angle="1" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="2" EndFrame="2" Angle="2" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="3" EndFrame="3" Angle="3" FrameTime="0.1"/>
+        <Animation Name="attack" StartFrame="4" EndFrame="4" Angle="0" FrameTime="0.05" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="5" EndFrame="5" Angle="1" FrameTime="0.05" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="6" EndFrame="6" Angle="2" FrameTime="0.05" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="7" EndFrame="7" Angle="3" FrameTime="0.05" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="8" EndFrame="8" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="9" EndFrame="27" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="28" EndFrame="28" Angle="0" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="28" EndFrame="28" Angle="1" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="28" EndFrame="28" Angle="2" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="28" EndFrame="28" Angle="3" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>18,24</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/machinegun/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="expDefensePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_small" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="StructureSoldSmallPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetEnemy="false" TargetNonCommander="false">
+        <Action Type="Push" Time="0" Data="OnSell"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

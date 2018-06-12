@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Chameleon_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Chameleon_LongName</LongName>
+  <StrategyHint>Chameleons remain invisible until they stand next to an enemy.  Their trench raiding clubs do massive damage.</StrategyHint>
+  <Description>Unit_Chameleon_Description</Description>
+  <TraitList>Unit_Chameleon_TraitList</TraitList>
+  <CanBeInDeck>false</CanBeInDeck>
+  <CanSell>true</CanSell>
+  <CanStim>true</CanStim>
+  <DeckIndex>104</DeckIndex>
+  <Tier>2</Tier>
+  <BlockMovement>false</BlockMovement>
+  <StandingHeight>1</StandingHeight>
+  <BuildCost>20</BuildCost>
+  <Traits>
+    <Trait>summon</Trait>
+  </Traits>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t2/chameleon/vo/</EntitySoundPrefix>
+  <Portrait Path="ui/portraits/large" Name="chameleon"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="chameleon_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="chameleon"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="chameleon_tint"/>
+  <MenuPortrait Path="ui/portraits/cropped" Name="chameleon"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="chameleon_tint"/>
+  <PortraitOffset>550,850</PortraitOffset>
+  <SmallPortraitOffset>275,425</SmallPortraitOffset>
+  <ADPortraitOffset>640, 970</ADPortraitOffset>
+  <ADPortraitScale>0.85</ADPortraitScale>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_chameleon"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_chameleon_tint"/>
+  <HealthBarYOffset>14</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="36" FrameHeight="36" IsDecal="true">
+      <Texture Path="structures/gameplay" Name="moleemerge"/>
+      <Animations>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="7" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="0" EndFrame="7" FrameTime="0.1"/>
+      </Animations>
+      <Pivot>18,24</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Production ProductionData="chameleon" MaxSpawnedAtOnce="1" AlwaysActive="true"/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnProduce">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/t1/onproduce" Attenuation="25"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateDecal" Data="burrow_emerge"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="expStructurePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Value="0.5" Time="0.5" Attenuation="20"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_small"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_misc" Value="1" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="0,0,0" Attach="true" InheritPosition="false"/>
+        <Action Type="CreateParticleSystem" Data="MoleBuildDirtEmitter" Offset="0,0,0" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_misc" Value="1" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="0,0,0"/>
+      </Scope>
+    </Event>
+  </Events>
+
+</StructureData>

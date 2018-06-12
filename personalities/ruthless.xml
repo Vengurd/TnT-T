@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PersonalityData>
+  <DisplayName>Personality_Ruthless</DisplayName>
+  <Difficulty>5</Difficulty>
+  <Inertia>3</Inertia>
+  <BattleMultiplierMax>4</BattleMultiplierMax>
+  <BattleMultiplierMin>0.25</BattleMultiplierMin>
+  <BattleMultiplierDefenseBonus>2</BattleMultiplierDefenseBonus>
+  <BattleMultiplierPigBonus>0.25</BattleMultiplierPigBonus>
+  <DesiredSupportShare>0.1</DesiredSupportShare>
+  <SupportBonus>3.0</SupportBonus>
+  <DiversityWeight>0.8</DiversityWeight>
+  <MaxDiversityDeviation>240</MaxDiversityDeviation>
+  <UncertaintyMultiplier>0.5</UncertaintyMultiplier>
+  <MinUncertaintyTime>10</MinUncertaintyTime>
+  <MinUncertaintyFarms>4</MinUncertaintyFarms>
+  <WarrenClusterRange>2</WarrenClusterRange>
+  <AttackRangeProtectionExtension>2</AttackRangeProtectionExtension>
+  <MaxElevationDifferentialRange>8</MaxElevationDifferentialRange>
+  <WarrenElevationDifferentialRange>5</WarrenElevationDifferentialRange>
+  <StandardThreatRange>8</StandardThreatRange>
+  <CooldownReevaluate>10</CooldownReevaluate>
+  <CooldownScout>90</CooldownScout>
+  <CooldownDamage>10</CooldownDamage>
+  <CooldownCommanderDamage>2</CooldownCommanderDamage>
+  <CooldownAttack>60</CooldownAttack>
+  <CooldownAttackClick>1</CooldownAttackClick>
+  <CooldownIntercept>10</CooldownIntercept>
+  <CooldownGather>60</CooldownGather>
+  <CooldownDefend>15</CooldownDefend>
+  <CooldownGoalWarren>10</CooldownGoalWarren>
+  <StartMatchUncertaintyTime>30</StartMatchUncertaintyTime>
+  <BuildPositionTestPositions>80</BuildPositionTestPositions>
+  <WarrenChoice>
+    <Name>ChooseWarren</Name>
+    <WeightedValues>
+      <WeightedValue Value="Wait" Weight="0.99" Min="0" Max="120" Power="3" Inverse="true"/>
+      <WeightedValue Value="ReadySafety" Weight="0.99" Power="3"/>
+      <WeightedValue Value="ArmyChangeBuild" Weight="1" Min="-20" Max="200" Power="2"/>
+    </WeightedValues>
+  </WarrenChoice>
+  <Strategies>
+    <BuildFarm>
+      <Name>Build</Name>
+      <Weight>250</Weight>
+      <WeightedValues>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="30" Power="3" Inverse="true"/>
+        <WeightedValue Value="Defend" Weight="0.75"/>
+        <WeightedValue Value="RemainingFood" Weight="0.75" Max="2000" Pow="2" Inverse="true"/>
+        <WeightedValue Value="ArmyChangeBuild" Weight="0.25" Min="-500" Max="500"/>
+        <WeightedValue Value="MarginalIncome" Weight="0.8" Min="-4" Max="8" Inverse="true"/>
+        <WeightedValue Value="Danger" Weight="0.95" Min="0" Max="10" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="30" Inverse="true"/>
+      </WeightedValues>
+    </BuildFarm>
+    <BuildGristmill>
+      <Name>Build Central</Name>
+      <Weight>40</Weight>
+      <MaxElevation>6</MaxElevation>
+      <ElevationWeight>0.25</ElevationWeight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <SafetyWeight>1</SafetyWeight>
+      <CentralityWeight>1</CentralityWeight>
+      <ClosestEnemyWeight>0.25</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>0.25</ClosestFriendlyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="10" Power="3" Inverse="true"/>
+        <WeightedValue Value="Skirmish" Weight="1"/>
+        <WeightedValue Value="RemainingFood" Weight="0.99" Max="1000" Inverse="true"/>
+        <WeightedValue Value="UnplowedFood" Weight="0.9" Max="300" Inverse="true"/>
+        <WeightedValue Value="Danger" Weight="0.95" Min="0" Max="60" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildGristmill>
+    <BuildGristmill>
+      <Name>Build Safe</Name>
+      <Weight>60</Weight>
+      <MaxElevation>6</MaxElevation>
+      <ElevationWeight>0.25</ElevationWeight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <ClosestEnemyWeight>1.0</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>1.0</ClosestFriendlyWeight>
+      <SafetyWeight>1</SafetyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="30" Power="3" Inverse="true"/>
+        <WeightedValue Value="Skirmish" Weight="0.5"/>
+        <WeightedValue Value="RemainingFood" Weight="0.99" Max="2400" Inverse="true"/>
+        <WeightedValue Value="UnplowedFood" Weight="0.9" Max="300" Inverse="true"/>
+        <WeightedValue Value="Danger" Weight="0.99" Min="0" Max="10" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildGristmill>
+    <BuildCampfire>
+      <Name>Build Central Fire</Name>
+      <Weight>30</Weight>
+      <MaxElevation>6</MaxElevation>
+      <ElevationWeight>0.25</ElevationWeight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <SafetyWeight>1</SafetyWeight>
+      <CentralityWeight>1</CentralityWeight>
+      <ClosestEnemyWeight>0.25</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>0.25</ClosestFriendlyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="10" Power="3" Inverse="true"/>
+        <WeightedValue Value="Skirmish" Weight="1"/>
+        <WeightedValue Value="RemainingFood" Weight="0.99" Max="1000" Inverse="true"/>
+        <WeightedValue Value="Danger" Weight="0.95" Min="0" Max="60" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildCampfire>
+    <BuildCampfire>
+      <Name>Build Safe Fire</Name>
+      <Weight>80</Weight>
+      <MaxElevation>6</MaxElevation>
+      <ElevationWeight>0.25</ElevationWeight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <ClosestEnemyWeight>1.0</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>1.0</ClosestFriendlyWeight>
+      <SafetyWeight>1</SafetyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="30" Power="3" Inverse="true"/>
+        <WeightedValue Value="Skirmish" Weight="0.5"/>
+        <WeightedValue Value="RemainingFood" Weight="0.99" Max="2400" Inverse="true"/>
+        <WeightedValue Value="Danger" Weight="0.99" Min="0" Max="10" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildCampfire>
+    <BuildWarren>
+      <Name>Build</Name>
+      <Weight>150</Weight>
+      <MaxArmyChange>200</MaxArmyChange>
+      <PositionalWeights>
+        <TestPositions>80</TestPositions>
+        <ProtectionWeight>0.98</ProtectionWeight>
+        <ClusterWeight>0.98</ClusterWeight>
+        <ValueWeight>0.99</ValueWeight>
+        <OverlappingProtectionWeight>0.75</OverlappingProtectionWeight>
+        <ElevationWeight>0.9</ElevationWeight>
+        <TrafficWeight>-0.75</TrafficWeight>
+        <MaxStructureValue>200</MaxStructureValue>
+        <MaxProtection>200</MaxProtection>
+        <MaxCluster>100</MaxCluster>
+        <MinElevationDifferential>-6</MinElevationDifferential>
+        <MaxElevationDifferential>6</MaxElevationDifferential>
+        <MaxOverlappingProtection>200</MaxOverlappingProtection>
+        <MaxTraffic>10</MaxTraffic>
+      </PositionalWeights>
+      <WeightedValues>
+        <WeightedValue Value="PositionalScore" Weight="0.5" Normalized="false"/>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="30" Power="3" Inverse="true"/>
+        <WeightedValue Value="ReadySafety" Weight="0.9" Power="2"/>
+        <WeightedValue Value="ArmyChangeBuild" Weight="0.95" Min="-20" Max="200"/>
+        <WeightedValue Value="MarginalIncome" Weight="0.95" Min="-3" Max="3"/>
+        <WeightedValue Value="Danger" Weight="0.99" Min="0" Max="10" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildWarren>
+    <BuildDefense>
+      <Name>Build</Name>
+      <Weight>40</Weight>
+      <PositionalWeights>
+        <TestPositions>80</TestPositions>
+        <ProtectionWeight>0.25</ProtectionWeight>
+        <ClusterWeight>0.25</ClusterWeight>
+        <ValueWeight>0.99</ValueWeight>
+        <OverlappingProtectionWeight>0.75</OverlappingProtectionWeight>
+        <ElevationWeight>0.9</ElevationWeight>
+        <TrafficWeight>0.95</TrafficWeight>
+        <MaxStructureValue>200</MaxStructureValue>
+        <MaxProtection>200</MaxProtection>
+        <MaxCluster>100</MaxCluster>
+        <MinElevationDifferential>-6</MinElevationDifferential>
+        <MaxElevationDifferential>6</MaxElevationDifferential>
+        <MaxOverlappingProtection>200</MaxOverlappingProtection>
+        <MaxTraffic>10</MaxTraffic>
+      </PositionalWeights>
+      <WeightedValues>
+        <WeightedValue Value="PositionalScore" Weight="0.75" Normalized="false"/>
+        <WeightedValue Value="Wait" Weight="0.9" Min="0" Max="30" Power="3" Inverse="true"/>
+        <WeightedValue Value="ReadySafety" Weight="0.9" Power="2"/>
+        <WeightedValue Value="ArmyChangeBuild" Weight="0.95" Min="-20" Max="200"/>
+        <WeightedValue Value="Danger" Weight="0.95" Min="0" Max="60" Inverse="true"/>
+        <WeightedValue Value="Defend" Weight="1" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </BuildDefense>
+    <Sell>
+      <Name>Sell</Name>
+      <Weight>1</Weight>
+      <MaxArmyChange>200</MaxArmyChange>
+      <WeightedValues>
+        <WeightedValue Value="PositionalScore" Weight="1" Normalized="false"/>
+        <WeightedValue Value="Bank" Weight="0.95" Min="-60" Max="120" Inverse="true"/>
+        <WeightedValue Value="ArmyChangeSell" Weight="0.5" Min="-200" Max="20"/>
+        <WeightedValue Value="MarginalIncome" Weight="0.95" Min="-6" Max="2" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Sell>
+    <Explore>
+      <Name>Explore</Name>
+      <Weight>5</Weight>
+      <MinWeight>0.01</MinWeight>
+      <WeightedValues>
+        <WeightedValue Value="Distance" Weight="0.8" Min="10" Max="60" Inverse="true"/>
+        <WeightedValue Value="UnexploredMills" Weight="1"/>
+        <WeightedValue Value="UnexploredEnemyMills" Weight="0.75"/>
+      </WeightedValues>
+    </Explore>
+    <Gather>
+      <Name>Gather</Name>
+      <Weight>5</Weight>
+      <MinWeight>0.01</MinWeight>
+      <PositionalWeights>
+        <TestPositions>80</TestPositions>
+        <ProtectionWeight>0.75</ProtectionWeight>
+        <ClusterWeight>0.2</ClusterWeight>
+        <ValueWeight>0.75</ValueWeight>
+        <ElevationWeight>0.25</ElevationWeight>
+        <TrafficWeight>0.85</TrafficWeight>
+        <MaxStructureValue>200</MaxStructureValue>
+        <MaxProtection>200</MaxProtection>
+        <MaxCluster>100</MaxCluster>
+        <MinElevationDifferential>-6</MinElevationDifferential>
+        <MaxElevationDifferential>6</MaxElevationDifferential>
+        <MaxTraffic>10</MaxTraffic>
+      </PositionalWeights>
+      <WeightedValues>
+        <WeightedValue Value="PositionalScore" Weight="1" Normalized="false"/>
+        <WeightedValue Value="TimerAttack" Weight="1" Inverse="true" Sqrt="true"/>
+        <WeightedValue Value="TimerGather" Weight="0.95" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Gather>
+    <Scout>
+      <Name>Scout</Name>
+      <Weight>4</Weight>
+      <MinWeight>0.01</MinWeight>
+      <WeightedValues>
+        <WeightedValue Value="Distance" Weight="0.8" Min="10" Max="60" Inverse="true"/>
+        <WeightedValue Value="TimerScout" Weight="0.75" Inverse="true"/>
+      </WeightedValues>
+    </Scout>
+    <Attack>
+      <Name>Attack</Name>
+      <Weight>20</Weight>
+      <WeightedValues>
+        <WeightedValue Value="TimerAttack" Weight="0.95" Inverse="true"/>
+        <WeightedValue Value="TimerGather" Weight="0.5" Inverse="true"/>
+        <WeightedValue Value="TimerIntercept" Weight="0.5" Inverse="true"/>
+        <WeightedValue Value="Attack" Weight="0.99" Pow="2"/>
+        <WeightedValue Value="ProductionComplete" Weight="0.75"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Attack>
+    <Intercept>
+      <Name>Intercept</Name>
+      <Weight>10</Weight>
+      <WeightedValues>
+        <WeightedValue Value="Skirmish" Weight="1"/>
+        <WeightedValue Value="TimerAttack" Weight="1" Inverse="true"/>
+        <WeightedValue Value="TimerIntercept" Weight="0.5" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Intercept>
+    <Defend>
+      <Name>Defend</Name>
+      <Weight>20</Weight>
+      <WeightedValues>
+        <WeightedValue Value="TimerDefend" Weight="1" Inverse="true"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Defend>
+    <BuildFarm>
+      <Name>Starve Build</Name>
+      <Weight>20</Weight>
+      <WeightedValues>
+        <WeightedValue Value="Bank" Weight="1" Min="0" Max="60"/>
+        <WeightedValue Value="RemainingFood" Weight="1" Max="200" Inverse="true"/>
+      </WeightedValues>
+    </BuildFarm>
+    <BuildGristmill>
+      <Name>Starve Build</Name>
+      <Weight>20</Weight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <ClosestEnemyWeight>1.0</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>1.0</ClosestFriendlyWeight>
+      <SafetyWeight>1</SafetyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Bank" Weight="1" Min="60" Max="180"/>
+        <WeightedValue Value="RemainingFood" Weight="1" Max="200" Inverse="true"/>
+      </WeightedValues>
+    </BuildGristmill>
+    <BuildCampfire>
+      <Name>Starve Build Campfire</Name>
+      <Weight>20</Weight>
+      <MinPathDistance>10</MinPathDistance>
+      <MaxPathDistance>60</MaxPathDistance>
+      <ClosestEnemyWeight>1.0</ClosestEnemyWeight>
+      <ClosestFriendlyWeight>1.0</ClosestFriendlyWeight>
+      <SafetyWeight>1</SafetyWeight>
+      <WeightedValues>
+        <WeightedValue Value="Bank" Weight="1" Min="60" Max="180"/>
+        <WeightedValue Value="RemainingFood" Weight="1" Max="200" Inverse="true"/>
+      </WeightedValues>
+    </BuildCampfire>
+    <Sell>
+      <Name>Starve Sell</Name>
+      <Weight>20</Weight>
+      <MaxArmyChange>200</MaxArmyChange>
+      <WeightedValues>
+        <WeightedValue Value="Bank" Weight="1" Min="0" Max="180" Inverse="true"/>
+        <WeightedValue Value="RemainingFood" Weight="1" Max="200" Inverse="true"/>
+      </WeightedValues>
+    </Sell>
+  </Strategies>
+  <Preferences>
+    <UnitPreference Name="warren_lizard" OffenseValue="0.75" SupportValue="0.25">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+        <item key="Flying" value="0.5"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_mole" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_pigeon" OffenseValue="0" SupportValue="1">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_squirrel" OffenseValue="1" SupportValue="0">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_toad" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_chameleon" OffenseValue="1" SupportValue="0">
+      <Counters>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_falcon" OffenseValue="1" SupportValue="0">
+      <Counters>
+        <item key="Ground" value="0"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_ferret" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Structure" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_skunk" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_snake" OffenseValue="0.75" SupportValue="0.25">
+      <Counters>
+        <item key="LowHP" value="0.5"/>
+        <item key="Structure" value="0.5"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_badger" OffenseValue="1" SupportValue="0">
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_boar" OffenseValue="1" SupportValue="0">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_fox" OffenseValue="0.5" SupportValue="0.5">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_owl" OffenseValue="0.5" SupportValue="0.5">
+      <Counters>
+        <item key="Ground" value="0"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_wolf" OffenseValue="0" SupportValue="1">
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_machinegun" OffenseValue="0" SupportValue="1">
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_barbedwire" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_landmine" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_balloon" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_artillery" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Structure" value="0.25"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+  </Preferences>
+
+</PersonalityData>

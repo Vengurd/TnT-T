@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>signpost 1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <CanSell>false</CanSell>
+  <Signpost>true</Signpost>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="30" FrameHeight="30">
+      <Texture Path="structures/campaign" Name="signpost1"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2"/>
+      </Animations>
+      <Pivot>15,23</Pivot>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+</StructureData>

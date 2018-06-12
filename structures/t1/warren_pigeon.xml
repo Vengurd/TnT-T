@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Pigeon_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Pigeon_LongName</LongName>
+  <StrategyHint>Pigeons will heal friendly units, and can only be attacked by ranged units.</StrategyHint>
+  <Description>Unit_Pigeon_Description</Description>
+  <TraitList>Unit_Pigeon_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>4</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>true</CanStim>
+  <Tier>1</Tier>
+  <BlockMovement>false</BlockMovement>
+  <StandingHeight>1</StandingHeight>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/pigeon/vo/</EntitySoundPrefix>
+  <Portrait Path="ui/portraits/large" Name="pigeon"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="pigeon_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="pigeon"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="pigeon_tint"/>
+  <MenuPortrait Path="ui/portraits/cropped" Name="pigeon"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="pigeon_tint"/>
+  <PortraitOffset>400,840</PortraitOffset>
+  <SmallPortraitOffset>150,430</SmallPortraitOffset>
+  <ADPortraitOffset>400, 860</ADPortraitOffset>
+  <ADPortraitScale>0.85</ADPortraitScale>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_pigeon"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_pigeon_tint"/>
+  <HealthBarYOffset>14</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="40" FrameHeight="40" IsDecal="true" Climate="Autumn">
+      <Texture Path="structures/gameplay" Name="structure_warrens1"/>
+      <TintMap Path="structures/gameplay" Name="structure_warrens1_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="13" EndFrame="13" FrameTime="0.1"/>
+        <Animation Name="offline" StartFrame="14" EndFrame="14" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="3" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="4" EndFrame="13" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="unitProduced" StartFrame="13" EndFrame="13" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="15" EndFrame="15" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>20,24</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="40" FrameHeight="40" IsDecal="true" Climate="Desert">
+      <Texture Path="structures/gameplay" Name="desert_structure_warrens1"/>
+      <TintMap Path="structures/gameplay" Name="structure_warrens1_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="13" EndFrame="13" FrameTime="0.1"/>
+        <Animation Name="offline" StartFrame="14" EndFrame="14" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="3" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="4" EndFrame="13" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="unitProduced" StartFrame="13" EndFrame="13" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="15" EndFrame="15" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>20,24</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="40" FrameHeight="40" IsDecal="true" Climate="Snowy">
+      <Texture Path="structures/gameplay" Name="snow_structure_warrens1"/>
+      <TintMap Path="structures/gameplay" Name="structure_warrens1_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="13" EndFrame="13" FrameTime="0.1"/>
+        <Animation Name="offline" StartFrame="14" EndFrame="14" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="3" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="4" EndFrame="13" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="unitProduced" StartFrame="13" EndFrame="13" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="15" EndFrame="15" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>20,24</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Production ProductionData="pigeon" MaxSpawnedAtOnce="3" AlwaysActive="true"/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnStartProducing">
+      <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/ui/game_unitproduction"/>
+      </Scope>
+    </Event>
+    <Event Type="OnStartProducingBlocked">
+      <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/ui/game_unitproduction_blocked"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnProduce">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/t1/onproduce" Attenuation="25"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="expStructurePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Value="0.5" Time="0.5" Attenuation="20"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_main"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_main" Value="1" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="0,0,0" Attach="true" InheritPosition="false"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="1,0,0" Attach="true" InheritPosition="false"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="0,0,1" Attach="true" InheritPosition="false"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="1,0,1" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/t1/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_main" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="0,0,0"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="1,0,0"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="0,0,1"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="1,0,1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+
+
+</StructureData>

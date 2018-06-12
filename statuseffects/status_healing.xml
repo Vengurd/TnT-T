@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StatusEffectData>
+  <DisplayName>Healing</DisplayName>
+  <Icon Path="status-effects" Name="heal"/>
+  <Particles>HealEmitter</Particles>
+  <CanStack>true</CanStack>
+</StatusEffectData>

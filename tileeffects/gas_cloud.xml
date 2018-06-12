@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TileEffectData>
+  <DisplayName>Gas Cloud</DisplayName>
+  <Sprites>
+    <Sprite FrameWidth="40" FrameHeight="40" IsDecal="true">
+      <Texture Path="decals/combat" Name="gas_puddle"/>
+      <Pivot>20,20</Pivot>
+      <Animations>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <MaxSpreadDistance>200</MaxSpreadDistance>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <Events>
+    <Event Type="OnTimer" Time="5">
+      <Scope>
+        <Action Type="Remove"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetAir="false" TargetStructures="false" TargetFriendly="false" TargetDead="false">
+        <Action Type="DamageOverTime" Data="Gas" Time="1" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSpawn">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="weapGasPSystem" Attach="true"/>
+      </Scope>
+    </Event>
+  </Events>
+</TileEffectData>

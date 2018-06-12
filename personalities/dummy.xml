@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PersonalityData>
+  <DisplayName>Personality_Dummy</DisplayName>
+  <Difficulty>0</Difficulty>
+  <BattleMultiplierMax>4</BattleMultiplierMax>
+  <BattleMultiplierMin>0.25</BattleMultiplierMin>
+  <BattleMultiplierDefenseBonus>2</BattleMultiplierDefenseBonus>
+  <BattleMultiplierPigBonus>0.25</BattleMultiplierPigBonus>
+  <DesiredSupportShare>0.1</DesiredSupportShare>
+  <SupportBonus>3.0</SupportBonus>
+  <DiversityWeight>0.8</DiversityWeight>
+  <CooldownScout>60</CooldownScout>
+  <CooldownDamage>2</CooldownDamage>
+  <CooldownAttack>20</CooldownAttack>
+  <CooldownGather>20</CooldownGather>
+  <CooldownDefend>10</CooldownDefend>
+  <CooldownGoalWarren>10</CooldownGoalWarren>
+  <MinBank>-60</MinBank>
+  <MaxBank>500</MaxBank>
+  <MaxPathDistance>60</MaxPathDistance>
+  <MinPathDistance>10</MinPathDistance>
+  <MaxWaitTime>20</MaxWaitTime>
+  <Preferences>
+    <item>
+      <string>warren_lizard</string>
+      <UnitPreference OffenseValue="0.75" SupportValue="0.25"/>
+    </item>
+    <item>
+      <string>warren_mole</string>
+      <UnitPreference OffenseValue="0.5" SupportValue="0.5"/>
+    </item>
+    <item>
+      <string>warren_pigeon</string>
+      <UnitPreference OffenseValue="0" SupportValue="1"/>
+    </item>
+    <item>
+      <string>warren_squirrel</string>
+      <UnitPreference OffenseValue="1" SupportValue="0"/>
+    </item>
+    <item>
+      <string>warren_toad</string>
+      <UnitPreference OffenseValue="0.5" SupportValue="0.5"/>
+    </item>
+    <item>
+      <string>warren_chameleon</string>
+      <UnitPreference OffenseValue="1" SupportValue="0"/>
+    </item>
+    <item>
+      <string>warren_falcon</string>
+      <UnitPreference OffenseValue="1" SupportValue="0"/>
+    </item>
+    <item>
+      <string>warren_ferret</string>
+      <UnitPreference OffenseValue="0.25" SupportValue="0.75"/>
+    </item>
+    <item>
+      <string>warren_skunk</string>
+      <UnitPreference OffenseValue="0.25" SupportValue="0.75"/>
+    </item>
+    <item>
+      <string>warren_snake</string>
+      <UnitPreference OffenseValue="0.75" SupportValue="0.25"/>
+    </item>
+    <item>
+      <string>warren_badger</string>
+      <UnitPreference OffenseValue="1" SupportValue="0"/>
+    </item>
+    <item>
+      <string>warren_boar</string>
+      <UnitPreference OffenseValue="1" SupportValue="0"/>
+    </item>
+    <item>
+      <string>warren_fox</string>
+      <UnitPreference OffenseValue="0.5" SupportValue="0.5"/>
+    </item>
+    <item>
+      <string>warren_owl</string>
+      <UnitPreference OffenseValue="0.5" SupportValue="0.5"/>
+    </item>
+    <item>
+      <string>warren_wolf</string>
+      <UnitPreference OffenseValue="0" SupportValue="1"/>
+    </item>
+  </Preferences>
+  <Strategies/>
+
+</PersonalityData>

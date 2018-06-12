@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PersonalityData>
+  <DisplayName>HideAndSeek</DisplayName>
+  <Difficulty>1</Difficulty>
+  <Inertia>3</Inertia>
+  <BattleMultiplierMax>4</BattleMultiplierMax>
+  <BattleMultiplierMin>0.25</BattleMultiplierMin>
+  <BattleMultiplierDefenseBonus>2</BattleMultiplierDefenseBonus>
+  <BattleMultiplierPigBonus>0.25</BattleMultiplierPigBonus>
+  <DesiredSupportShare>0.1</DesiredSupportShare>
+  <SupportBonus>3.0</SupportBonus>
+  <DiversityWeight>0.8</DiversityWeight>
+  <MaxDiversityDeviation>240</MaxDiversityDeviation>
+  <UncertaintyMultiplier>0.5</UncertaintyMultiplier>
+  <MinUncertaintyTime>10</MinUncertaintyTime>
+  <MinUncertaintyFarms>4</MinUncertaintyFarms>
+  <WarrenClusterRange>2</WarrenClusterRange>
+  <AttackRangeProtectionExtension>2</AttackRangeProtectionExtension>
+  <MaxElevationDifferentialRange>8</MaxElevationDifferentialRange>
+  <WarrenElevationDifferentialRange>5</WarrenElevationDifferentialRange>
+  <StandardThreatRange>8</StandardThreatRange>
+  <CooldownReevaluate>10</CooldownReevaluate>
+  <CooldownScout>90</CooldownScout>
+  <CooldownDamage>10</CooldownDamage>
+  <CooldownCommanderDamage>2</CooldownCommanderDamage>
+  <CooldownAttack>60</CooldownAttack>
+  <CooldownAttackClick>1</CooldownAttackClick>
+  <CooldownIntercept>10</CooldownIntercept>
+  <CooldownGather>60</CooldownGather>
+  <CooldownDefend>15</CooldownDefend>
+  <CooldownGoalWarren>10</CooldownGoalWarren>
+  <StartMatchUncertaintyTime>30</StartMatchUncertaintyTime>
+  <BuildPositionTestPositions>80</BuildPositionTestPositions>
+  <Strategies>
+    <Assassinate>
+      <Name>Assassinate</Name>
+      <Weight>20</Weight>
+      <WeightedValues>
+        <WeightedValue Value="TimerAttack" Weight="0.95" Inverse="true"/>
+        <WeightedValue Value="TimerGather" Weight="0.5" Inverse="true"/>
+        <WeightedValue Value="TimerIntercept" Weight="0.5" Inverse="true"/>
+        <WeightedValue Value="Attack" Weight="0.99" Pow="2"/>
+        <WeightedValue Value="ProductionComplete" Weight="0.75"/>
+        <WeightedValue Value="Distance" Weight="0.75" Min="0" Max="60" Inverse="true"/>
+      </WeightedValues>
+    </Assassinate>
+  </Strategies>
+  <Preferences>
+    <UnitPreference Name="warren_lizard" OffenseValue="0.75" SupportValue="0.25">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+        <item key="Flying" value="0.5"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_mole" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_pigeon" OffenseValue="0" SupportValue="1">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_squirrel" OffenseValue="1" SupportValue="0">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_toad" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_chameleon" OffenseValue="1" SupportValue="0">
+      <Counters>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_falcon" OffenseValue="1" SupportValue="0">
+      <Counters>
+        <item key="Ground" value="0"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_ferret" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Structure" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_skunk" OffenseValue="0.25" SupportValue="0.75">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_snake" OffenseValue="0.75" SupportValue="0.25">
+      <Counters>
+        <item key="LowHP" value="0.5"/>
+        <item key="Structure" value="0.5"/>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_badger" OffenseValue="1" SupportValue="0">
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_boar" OffenseValue="1" SupportValue="0">
+      <Counters>
+        <item key="Crowd" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_fox" OffenseValue="0.5" SupportValue="0.5">
+      <Counters>
+      </Counters>
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_owl" OffenseValue="0.5" SupportValue="0.5">
+      <Counters>
+        <item key="Ground" value="0"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="warren_wolf" OffenseValue="0" SupportValue="1">
+      <CounterClasses></CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_machinegun" OffenseValue="0" SupportValue="1">
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_barbedwire" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_landmine" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_balloon" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Sniper" value="0.5"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+    <UnitPreference Name="structure_artillery" OffenseValue="0" SupportValue="1">
+      <Counters>
+        <item key="Structure" value="0.25"/>
+      </Counters>
+      <CounterClasses>
+        <CounterClass>Structure</CounterClass>
+        <CounterClass>Ground</CounterClass>
+      </CounterClasses>
+    </UnitPreference>
+  </Preferences>
+</PersonalityData>

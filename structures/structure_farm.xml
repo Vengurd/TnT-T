@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Farm_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Fat Boris</LongName>
+  <Description></Description>
+  <BuildTime>20</BuildTime>
+  <BuildCost>40</BuildCost>
+  <CanSellInProgress>true</CanSellInProgress>
+  <CanSell>false</CanSell>
+  <CanQueue>true</CanQueue>
+  <CanStim>false</CanStim>
+  <BuildOnMineral>true</BuildOnMineral>
+  <MustBuildNextToHQ>true</MustBuildNextToHQ>
+  <BlockMovement>false</BlockMovement>
+  <CanTargetWhenBuilt>false</CanTargetWhenBuilt>
+  <EntitySoundPrefix></EntitySoundPrefix>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_pig"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_pig_tint"/>
+  <PlateSize>2</PlateSize>
+  <HealthBarYOffset>5</HealthBarYOffset>
+  <Behaviors>
+    <Production ProductionData="pig" MaxSpawnedAtOnce="1" AlwaysActive="true"/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="StructureDeathEmitter"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Value="1" Time="0.5" Attenuation="20"/>
+      </Scope>
+    </Event>
+    <Event Type="OnMineOut">
+      <Scope>
+        <Action Type="Die"/>
+        <Action Type="PlayAnimation" Data="complete"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Offset="0,0,0" Attach="true" InheritPosition="false"/>
+        <Action Type="CreateParticleSystem" Data="MoleBuildDirtEmitter" Offset="0,0,0" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnRemovedFromQueue">
+      <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/ui/game_unitproduction"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem" Offset="0,0,0"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_misc" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+  </Events>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+</StructureData>

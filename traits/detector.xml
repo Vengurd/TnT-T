@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Detector</DisplayName>
+  <Description>Reveals nearby stealth units</Description>
+  <Detector>true</Detector>
+</TraitData>
