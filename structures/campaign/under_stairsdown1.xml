@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>underground stairsdown 1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <Portal>true</Portal>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="63" FrameHeight="43" SelectRandomGroup="0">
+      <Texture Path="structures/campaign" Name="under_stairsdown1"/>
+      <Pivot>32,22</Pivot>
+      <Animations>
+        
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>false</BlockMovement>
+</StructureData>

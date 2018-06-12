@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StatusEffectData>
+  <DisplayName>Burning</DisplayName>
+  <Particles>envsmokesmallemitter</Particles>
+  <CanStack>false</CanStack>
+</StatusEffectData>

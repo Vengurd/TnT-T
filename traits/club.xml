@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Club</DisplayName>
+  <Description>Attacks ground targets at double speed.</Description>
+  <Weapon>weapon_club</Weapon>
+</TraitData>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Balloon_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Balloon_LongName</LongName>
+  <StrategyHint>A flying structure, the Balloon provides battlefield visibility and does high damage with a low firing rate.</StrategyHint>
+  <Description>Unit_Balloon_Description</Description>
+  <TraitList>Unit_Balloon_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>304</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>true</CanStim>
+  <Damage>17</Damage>
+  <Health>30</Health>
+  <DecayTime>0</DecayTime>
+  <PlateSize>3</PlateSize>
+  <Traits>
+    <Trait>flying</Trait>
+    <Trait>sniperballoon</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <BuildTime>10</BuildTime>
+  <BuildCost>20</BuildCost>
+  <BlockMovement>false</BlockMovement>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/balloon/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <Portrait Path="ui/portraits/large" Name="balloon"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="balloon_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="balloon"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="balloon_tint"/>
+  <PortraitOffset>456,900</PortraitOffset>
+  <SmallPortraitOffset>125,475</SmallPortraitOffset>
+  <ADPortraitOffset>425, 850</ADPortraitOffset>
+  <ADPortraitScale>0.9</ADPortraitScale>
+  <MenuPortrait Path="ui/portraits/cropped" Name="balloonsniper"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="balloonsniper_tint"/>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_balloon"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_balloon_tint"/>
+  <HealthBarYOffset>26</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="54" FrameHeight="54">
+      <Texture Path="structures/gameplay" Name="structure_balloon"/>
+      <TintMap Path="structures/gameplay" Name="structure_balloon_tint"/>
+      <MustUseCorrectAngle>true</MustUseCorrectAngle>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" Angle="0" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="4" EndFrame="4" Angle="1" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="12" EndFrame="12" Angle="2" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="8" EndFrame="8" Angle="3" FrameTime="0.1"/>
+        <Animation Name="attack" StartFrame="1" EndFrame="3" Angle="0" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="5" EndFrame="7" Angle="1" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="13" EndFrame="15" Angle="2" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="9" EndFrame="11" Angle="3" FrameTime="0.1" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="16" EndFrame="16" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="17" EndFrame="49" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+       </Animations>
+      <Pivot>27,40</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/balloon/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="expDefensePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_small"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldSmallPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetEnemy="false" TargetNonCommander="false">
+        <Action Type="Push" Time="0" Data="OnSell"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

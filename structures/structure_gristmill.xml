@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Gristmill_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <Description>This be like, my home and all that.</Description>
+  <Health>150</Health>
+  <Traits/>
+  <CanProxy>true</CanProxy>
+  <BuildTime>10</BuildTime>
+  <BuildCost>20</BuildCost>
+  <BuildHealTime>1</BuildHealTime>
+  <TerritoryRadius>16</TerritoryRadius>
+  <CanSell>false</CanSell>
+  <CanQueue>false</CanQueue>
+  <CanStim>false</CanStim>
+  <Refinery>true</Refinery>
+  <RevealOnDeath>true</RevealOnDeath>
+  <BuildOnMineral>true</BuildOnMineral>
+  <BlockMovement>true</BlockMovement>
+  <DecayTime>0.5</DecayTime>
+  <ObscuresOtherEntities>true</ObscuresOtherEntities>
+  <SpawnOffset>3,3</SpawnOffset>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <EntitySoundPrefix></EntitySoundPrefix>
+  <HealthBarYOffset>12</HealthBarYOffset>
+  <VisibilityRange>10</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Autumn">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <TintMap Path="structures/windmill" Name="windmill_base_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="96" EndFrame="96" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="14" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="0">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage0b" StartFrame="205" EndFrame="214" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+         <Events>
+          <Event Type="OnFrame" Time="205">
+            <Scope>
+              <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0b" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+            </Scope>
+          </Event>
+         </Events>
+        </Animation>
+        <Animation Name="constructionStage1" StartFrame="15" EndFrame="49" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+         <Events>
+          <Event Type="OnFrame" Time="15">
+            <Scope>
+              <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_1" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+            </Scope>
+          </Event>
+         </Events>
+        </Animation>
+        <Animation Name="constructionStage2" StartFrame="50" EndFrame="70" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+         <Events>
+          <Event Type="OnFrame" Time="50">
+            <Scope>
+              <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_2" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+            </Scope>
+          </Event>
+         </Events>
+        </Animation>
+        <Animation Name="constructionStage3" StartFrame="71" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+         <Events>
+          <Event Type="OnFrame" Time="71">
+            <Scope>
+              <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_3" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+            </Scope>
+          </Event>
+         </Events>
+        </Animation>
+        <Animation Name="constructionStage4" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage5" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="butcher" StartFrame="97" EndFrame="142" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="97">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher" Value="1" Attenuation="25" AdjustForVisibility="true"/>
+                <Action Type="CreateParticleSystem" Data="HQbutcherSmokestackEmitter" OffsetCenter="false" Attach="true" InheritPosition="true" Offset="0.4, 9.0, -0.25"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd0" StartFrame="143 " EndFrame="166" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="143">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="145">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="150">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd1" StartFrame="167" EndFrame="181" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="167">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="170">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd2" StartFrame="182 " EndFrame="203" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="182">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="184">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="189">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="204" EndFrame="204" FrameTime="0.1" Loop="10"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Autumn">
+      <Texture Path="structures/windmill" Name="windmill_topper"/>
+      <TintMap Path="structures/windmill" Name="windmill_topper_tint"/>
+      <DrawElevation>-0.007</DrawElevation>
+      <Animations>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage0b" StartFrame="0 " EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage2" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage3" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage4" StartFrame="1" EndFrame="20" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="1">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_4" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage5" StartFrame="21" EndFrame="44" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+         <Events>
+          <Event Type="OnFrame" Time="21">
+            <Scope>
+              <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_5" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+            </Scope>
+          </Event>
+        </Events>
+        </Animation>
+        <Animation Name="idle" StartFrame="45" EndFrame="104" FrameTime="0.1">
+          <Events>
+            <Event Type="OnFrame" Time="45">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="60">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="75">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="90">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="105" EndFrame="105" FrameTime="0.1" PauseOnComplete="true"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Desert">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <TintMap Path="structures/windmill" Name="windmill_base_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="96" EndFrame="96" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="14" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="0">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage0b" StartFrame="205" EndFrame="214" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="205">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0b" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage1" StartFrame="15" EndFrame="49" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="15">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_1" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage2" StartFrame="50" EndFrame="70" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="50">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_2" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage3" StartFrame="71" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="71">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_3" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage4" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage5" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="butcher" StartFrame="97" EndFrame="142" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="97">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher" Value="1" Attenuation="25" AdjustForVisibility="true"/>
+                <Action Type="CreateParticleSystem" Data="HQbutcherSmokestackEmitter" OffsetCenter="false" Attach="true" InheritPosition="true" Offset="0.4, 9.0, -0.25"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd0" StartFrame="143 " EndFrame="166" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="143">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="145">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="150">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd1" StartFrame="167" EndFrame="181" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="167">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="170">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd2" StartFrame="182 " EndFrame="203" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="182">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="184">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="189">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="204" EndFrame="204" FrameTime="0.1" Loop="10"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Desert">
+      <Texture Path="structures/windmill" Name="windmill_topper"/>
+      <TintMap Path="structures/windmill" Name="windmill_topper_tint"/>
+      <DrawElevation>-0.007</DrawElevation>
+      <Animations>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage0b" StartFrame="0 " EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage2" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage3" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage4" StartFrame="1" EndFrame="20" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="1">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_4" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage5" StartFrame="21" EndFrame="44" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="21">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_5" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="idle" StartFrame="45" EndFrame="104" FrameTime="0.1">
+          <Events>
+            <Event Type="OnFrame" Time="45">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="60">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="75">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="90">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="105" EndFrame="105" FrameTime="0.1" PauseOnComplete="true"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Snowy">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <TintMap Path="structures/windmill" Name="windmill_base_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="96" EndFrame="96" FrameTime="0.1"/>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="14" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="0">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage0b" StartFrame="205" EndFrame="214" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="205">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0b" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage1" StartFrame="15" EndFrame="49" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="15">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_1" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage2" StartFrame="50" EndFrame="70" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="50">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_2" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage3" StartFrame="71" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="71">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_3" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage4" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage5" StartFrame="96" EndFrame="96" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="butcher" StartFrame="97" EndFrame="142" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="97">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher" Value="1" Attenuation="25" AdjustForVisibility="true"/>
+                <Action Type="CreateParticleSystem" Data="HQbutcherSmokestackEmitter" OffsetCenter="false" Attach="true" InheritPosition="true" Offset="0.4, 9.0, -0.25"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd0" StartFrame="143 " EndFrame="166" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="143">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="145">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="150">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd1" StartFrame="167" EndFrame="181" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="167">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="170">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="butcherEnd2" StartFrame="182 " EndFrame="203" FrameTime="0.1" CanInterrupt="false" PauseOnComplete="true">
+          <Events>
+            <Event Type="OnFrame" Time="182">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="184">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="189">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/butcher_meat" Value="1" Attenuation="25" MuteForVisibility="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="204" EndFrame="204" FrameTime="0.1" Loop="10"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Snowy">
+      <Texture Path="structures/windmill" Name="windmill_topper"/>
+      <TintMap Path="structures/windmill" Name="windmill_topper_tint"/>
+      <DrawElevation>-0.007</DrawElevation>
+      <Animations>
+        <Animation Name="constructionStage0" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage0b" StartFrame="0 " EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage1" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage2" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage3" StartFrame="0" EndFrame="0" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="constructionStage4" StartFrame="1" EndFrame="20" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="1">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_4" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="constructionStage5" StartFrame="21" EndFrame="44" FrameTime="0.08" PauseOnComplete="true" CanInterrupt="false">
+          <Events>
+            <Event Type="OnFrame" Time="21">
+              <Scope>
+                <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_5" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="idle" StartFrame="45" EndFrame="104" FrameTime="0.1">
+          <Events>
+            <Event Type="OnFrame" Time="45">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="60">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="75">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+            <Event Type="OnFrame" Time="90">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/idle_flap" Value="1" Attenuation="25" MuteForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+        <Animation Name="death" StartFrame="105" EndFrame="105" FrameTime="0.1" PauseOnComplete="true"/>
+      </Animations>
+      <Pivot>70,120</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Refinery ActiveDuringBuild="false" Adjacent="true" HarvestCount="1" HarvestTime="1" AlwaysActive="true"/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HQconstructionStartPSystem" Attach="true"/>
+        <Action Type="CreateParticleSystem" Data="HQconstructionLoopPSystem" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/build_complete"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HQconstructionEndPSystem"/>
+        <Action Type="CreateParticleSystem" Data="HQsmokestackEmitter" OffsetCenter="false" Attach="true" InheritPosition="true" Offset="0.4, 9.0, -0.25"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope TargetWithinAggroRange="true" TargetFriendly="false" TargetCommander="false">
+        <Action Type="PlayVocalSound" Data="victory_outright" Value="3"/>
+      </Scope>
+      <Scope>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="StructureDeathEmitter" Offset="0.5,1,0.5"/>
+        <Action Type="ScreenShake" Value="2" Time="1.5" IgnoreArmyId="true"/>
+        <Action Type="ControllerRumble" Value="2" Time="1.5" IgnoreArmyId="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/gristmill/destroy"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0b"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_2"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_3"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_4"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_5"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_0b"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_2"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_3"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_4"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/gristmill/build_sequence_5"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

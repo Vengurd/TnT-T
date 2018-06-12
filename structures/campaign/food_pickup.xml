@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Food Pickup</DisplayName>
+  <HideInEditor>false</HideInEditor>
+  <CollisionRadius>0.4</CollisionRadius>
+  <Mineral>Food</Mineral>
+  <Health>10000000</Health>
+  <BlockMovement>false</BlockMovement>
+  <CanTarget>false</CanTarget>
+  <CollisionTiles>
+    <Tile>0,0</Tile>
+  </CollisionTiles>
+  <VisibilityRange>0</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="34" FrameHeight="44">
+      <Texture Path="minerals" Name="meatcrate"/>
+      <Pivot>17,32</Pivot>
+      <Animations>
+        
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnSpawn">
+      <Scope Target="Self">
+        <Action Type="CreateParticleSystem" Data="meatAmbientEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnStructureCollision">
+      <Scope Target="Other" SameFaction="true" TargetNonCommander="false">
+        <Action Type="GenerateMinerals" Value="600"/>
+        <Action Type="TargetDie"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_unit"/>
+        <Action Type="CreateParticleSystem" Data="meatCollectionEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

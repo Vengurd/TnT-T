@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Farmer</DisplayName>
+  <Description>Brings home the bacon.</Description>
+  <LifeLinked>true</LifeLinked>
+  <Summon>true</Summon>
+  <Behaviors>
+    <Farm DestinationTolerance="0.2" SpeedMultiplier="0.25"/>
+  </Behaviors>
+</TraitData>

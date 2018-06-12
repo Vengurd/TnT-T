@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Berserker</DisplayName>
+  <Description>Melee with a long aggro range.</Description>
+  <Behaviors>
+    <Formation TargetDistance="10000" DestinationTolerance="0.2" TargetHome="true"/>
+    <Attack InactiveDuringRally="false" AggroFromRally="false">
+      <Weapon>weapon_berserker</Weapon>
+    </Attack>
+  </Behaviors>
+</TraitData>

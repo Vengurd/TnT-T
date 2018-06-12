@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StatusEffectData>
+  <DisplayName>Stim</DisplayName>
+  <Icon Path="status-effects" Name="stim"/>
+  <Particles>StimmedEmitter</Particles>
+  <CanStack>false</CanStack>
+</StatusEffectData>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TraitData>
+  <DisplayName>Commander Sight</DisplayName>
+  <Description>Commander sees at 14.</Description>
+  <Visibility>14</Visibility>
+</TraitData>

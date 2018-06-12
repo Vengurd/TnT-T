@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Artillery_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_Artillery_LongName</LongName>
+  <StrategyHint>Fires long range shells that do damage to large groups of ground-based enemies.</StrategyHint>
+  <Description>Unit_Artillery_Description</Description>
+  <!--<Description>After the Operators closed the artillery shell factories, it was thought that the Drumfire cannon would not be a common sight on the front lines. As it turns out, using the bones of your enemies makes decent enough ammunition.</Description>-->
+  <TraitList>Unit_Artillery_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>305</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>true</CanStim>
+  <Damage>40</Damage>
+  <Health>80</Health>
+  <DecayTime>0</DecayTime>
+  <PlateSize>3</PlateSize>
+  <Traits>
+    <Trait>rapidartillery</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <BuildTime>10</BuildTime>
+  <BuildCost>80</BuildCost>
+  <BlockMovementWhileOperational>true</BlockMovementWhileOperational>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/artillery/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <Portrait Path="ui/portraits/large" Name="artillery"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="artillery_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="artillery"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="artillery_tint"/>
+  <PortraitOffset>456,1070</PortraitOffset>
+  <SmallPortraitOffset>150,535</SmallPortraitOffset>
+  <ADPortraitOffset>425, 950</ADPortraitOffset>
+  <ADPortraitScale>1</ADPortraitScale>
+  <MenuPortrait Path="ui/portraits/cropped" Name="artilleryturret"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="artilleryturret_tint"/>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_artillery"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_artillery_tint"/>
+  <HealthBarYOffset>25</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="44" FrameHeight="44">
+      <Texture Path="structures/gameplay" Name="structure_artillery"/>
+      <TintMap Path="structures/gameplay" Name="structure_artillery_tint"/>
+      <MustUseCorrectAngle>true</MustUseCorrectAngle>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" Angle="0" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="4" EndFrame="4" Angle="1" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="12" EndFrame="12" Angle="2" FrameTime="0.1"/>
+        <Animation Name="idle" StartFrame="8" EndFrame="8" Angle="3" FrameTime="0.1"/>
+        <Animation Name="attack" StartFrame="1" EndFrame="3" Angle="0" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="5" EndFrame="7" Angle="1" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="13" EndFrame="15" Angle="2" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="attack" StartFrame="9" EndFrame="11" Angle="3" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="16" EndFrame="16" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="17" EndFrame="33" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>22,34</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/artillery/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_small" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="expDefensePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_small"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldSmallPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetEnemy="false" TargetNonCommander="false">
+        <Action Type="Push" Time="0" Data="OnSell"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

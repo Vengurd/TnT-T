@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MineralData>
+  <DisplayName>Windmill</DisplayName>
+  <ObscuresOtherEntities>true</ObscuresOtherEntities>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <BuildRange>2</BuildRange>
+  <Sprites>
+    <Sprite FrameWidth="216" FrameHeight="144" IsDecal="true" Climate="Autumn">
+      <Texture Path="structures/windmill" Name="windmill_bib_forest"/>
+      <Pivot>108,77</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.002</DrawElevation>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Autumn">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <Pivot>70,120</Pivot>
+      <Animations>
+        <Animation Name="unclaimed" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="claimed" StartFrame="204" EndFrame="204" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.003</DrawElevation>
+    </Sprite>
+    <Sprite FrameWidth="216" FrameHeight="144" IsDecal="true" Climate="Desert">
+      <Texture Path="structures/windmill" Name="windmill_bib_desert"/>
+      <Pivot>108,77</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.002</DrawElevation>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Desert">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <Pivot>70,120</Pivot>
+      <Animations>
+        <Animation Name="unclaimed" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="claimed" StartFrame="204" EndFrame="204" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.003</DrawElevation>
+    </Sprite>
+    <Sprite FrameWidth="216" FrameHeight="144" IsDecal="true" Climate="Snowy">
+      <Texture Path="structures/windmill" Name="windmill_bib_snow"/>
+      <Pivot>108,77</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.002</DrawElevation>
+    </Sprite>
+    <Sprite FrameWidth="140" FrameHeight="140" Climate="Snowy">
+      <Texture Path="structures/windmill" Name="windmill_base"/>
+      <Pivot>70,120</Pivot>
+      <Animations>
+        <Animation Name="unclaimed" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="claimed" StartFrame="204" EndFrame="204" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+      <DrawElevation>0.003</DrawElevation>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+  <CollisionRadius>0.4</CollisionRadius>
+  <Mineral>Food</Mineral>
+  <StartingMinerals>0</StartingMinerals>
+  <MapColor>255,255,255,255</MapColor>
+  <Structure>structure_gristmill</Structure>
+</MineralData>

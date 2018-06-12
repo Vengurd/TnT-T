@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TileEffectData>
+  <DisplayName>Trigger</DisplayName>
+  <OnlyDrawInEditor>true</OnlyDrawInEditor>
+  <Sprites>
+    <Sprite FrameWidth="36" FrameHeight="24" IsDecal="true">
+      <Texture Path="decals" Name="trigger"/>
+      <Pivot>18,0</Pivot>
+      <Animations>
+        
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <MaxSpreadDistance>0</MaxSpreadDistance>
+  <CollisionTiles>
+    <Tile>0,0</Tile>
+  </CollisionTiles>
+  <Events>
+    <Event Type="OnCollision">
+    </Event>
+  </Events>
+</TileEffectData>

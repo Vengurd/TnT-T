@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TileEffectData>
+  <DisplayName>Napalm</DisplayName>
+  <MaxSpreadDistance>200</MaxSpreadDistance>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <Events>
+    <Event Type="OnTimer" Time="0.6">
+      <Scope>
+        <Action Type="Remove"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetAir="false" TargetStructures="true" TargetFriendly="false" TargetDead="false">
+        <Action Type="StatusEffect" Data="status_aflame" Time="0.25" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSpawn">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="napalmPSystem" Attach="true"/>
+      </Scope>
+    </Event>
+  </Events>
+</TileEffectData>

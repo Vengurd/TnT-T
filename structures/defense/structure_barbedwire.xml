@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_BarbedWire_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <LongName>Unit_BarbedWire_LongName</LongName>
+  <StrategyHint>Barbed wire can only be damaged by melee units, and will reflect damage back onto the attacker.</StrategyHint>
+  <Description>Unit_BarbedWire_Description</Description>
+  <TraitList>Unit_BarbedWire_TraitList</TraitList>
+  <CanBeInDeck>true</CanBeInDeck>
+  <DeckIndex>301</DeckIndex>
+  <CanSell>true</CanSell>
+  <CanStim>false</CanStim>
+  <PlateSize>1</PlateSize>
+  <Damage>20</Damage>
+  <Health>24</Health>
+  <DecayTime>0</DecayTime>
+  <Traits>
+    <Trait>barbedwire</Trait>
+    <Trait>machinegun</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <BuildTime>5</BuildTime>
+  <BuildCost>5</BuildCost>
+  <BlockMovement>false</BlockMovement>
+  <MovementSpeed>0.25</MovementSpeed>
+  <Tiles>
+    <Tile>0,0</Tile>
+  </Tiles>
+  <EntitySoundPrefix>event:/sfx/unit/structures/defense/barbedwire/</EntitySoundPrefix>
+  <CanBeStenciled>true</CanBeStenciled>
+  <Portrait Path="ui/portraits/large" Name="barbedwire"/>
+  <PortraitHueMask Path="ui/portraits/large" Name="barbedwire_tint"/>
+  <SmallPortrait Path="ui/portraits/small" Name="barbedwire"/>
+  <SmallPortraitHueMask Path="ui/portraits/small" Name="barbedwire_tint"/>
+  <MenuPortrait Path="ui/portraits/cropped" Name="barbedwire"/>
+  <MenuPortraitHueMask Path="ui/portraits/cropped" Name="barbedwire_tint"/>
+  <PortraitOffset>400,600</PortraitOffset>
+  <SmallPortraitOffset>200,325</SmallPortraitOffset>
+  <ADPortraitOffset>425, 600</ADPortraitOffset>
+  <ADPortraitScale>1</ADPortraitScale>
+  <PogTexture Path="atlas" Name="ui" Atlas="unit_barbedwire"/>
+  <PogTint Path="atlas" Name="ui" Atlas="unit_barbedwire_tint"/>
+  <HealthBarYOffset>5</HealthBarYOffset>
+  <Behaviors>
+    <Production ProductionData="mouse" MaxSpawnedAtOnce="2" AlwaysActive="true"/>
+  </Behaviors>
+  <Sprites>
+    <Sprite FrameWidth="36" FrameHeight="36" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_barbedwire"/>
+      <TintMap Path="structures/gameplay" Name="structure_barbedwire_tint"/>
+      <MustUseCorrectAngle>true</MustUseCorrectAngle>
+      <Animations>
+        <Animation Name="idle" StartFrame="1" EndFrame="1" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="6" EndFrame="8" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="12" EndFrame="12" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="13" EndFrame="25" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>18,24</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="36" FrameHeight="36" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_barbedwire"/>
+      <TintMap Path="structures/gameplay" Name="structure_barbedwire_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="3" EndFrame="5" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="12" EndFrame="12" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="26" EndFrame="39" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>18,24</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="36" FrameHeight="36" SelectRandomGroup="0">
+      <Texture Path="structures/gameplay" Name="structure_barbedwire"/>
+      <TintMap Path="structures/gameplay" Name="structure_barbedwire_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="2" EndFrame="2" FrameTime="0"/>
+        <Animation Name="attack" StartFrame="9" EndFrame="11" FrameTime="0.08" CanInterrupt="false"/>
+        <Animation Name="constructionStage0" StartFrame="12" EndFrame="12" Angle="0" FrameTime="0.1"/>
+        <Animation Name="constructionStage1" StartFrame="40" EndFrame="53" Angle="0" FrameTime="0.1" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>18,24</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel" AdjustForVisibility="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/confirmed_misc" MuteForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildStartPSystem" Attach="true" InheritPosition="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/unit/structures/shared/buildloop_tunnel"/>
+        <Action Type="PlayAnimation" Data="constructionStage1"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/defense/barbedwire/build_sequence" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/complete_misc" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="structureBuildEndPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <!--<Action Type="CreateParticleSystem" Data="StructureDeathEmitter"/>-->
+        <Action Type="CreateParticleSystem" Data="expDefensePSystem"/>
+        <Action Type="ScreenShake" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="ControllerRumble" Attenuation="50" Value="2" Time="0.5"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/structures/shared/destroy_misc"/>
+      </Scope>
+    </Event>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetEnemy="false" TargetNonCommander="false">
+        <Action Type="Push" Time="0" Data="OnSell"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="structureSoldSmallPSystem"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

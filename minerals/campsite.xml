@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MineralData>
+  <DisplayName>Campsite</DisplayName>
+  <ObscuresOtherEntities>false</ObscuresOtherEntities>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <CollisionTiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </CollisionTiles>
+  <Sprites>
+    <Sprite FrameWidth="48" FrameHeight="51" IsDecal="true">
+      <Texture Path="minerals" Name="meatspit_logs"/>
+      <Pivot>24,33</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active" StartFrame="1" EndFrame="1" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="dead" StartFrame="2" EndFrame="2" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+    </Sprite>
+    <Sprite FrameWidth="48" FrameHeight="51" IsDecal="false">
+      <Texture Path="minerals" Name="meatspit_meat"/>
+      <Pivot>24,33</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active5" StartFrame="1" EndFrame="1" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active4" StartFrame="2" EndFrame="2" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active3" StartFrame="3" EndFrame="3" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active2" StartFrame="4" EndFrame="4" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active1" StartFrame="5" EndFrame="5" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="active0" StartFrame="6" EndFrame="6" FrameTime="0.15" PauseOnComplete="true"/>
+        <Animation Name="dead" StartFrame="7" EndFrame="7" FrameTime="0.15" PauseOnComplete="true"/>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BuildRange>2</BuildRange>
+  <BlockMovement>false</BlockMovement>
+  <StandingHeight>1</StandingHeight>
+  <CollisionRadius>0.4</CollisionRadius>
+  <Mineral>Food</Mineral>
+  <StartingMinerals>1200</StartingMinerals>
+  <MapColor>255,255,255,255</MapColor>
+  <Structure>structure_campfire</Structure>
+</MineralData>

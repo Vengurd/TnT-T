@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>frontgate 1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <CanSell>false</CanSell>
+  <Gate>true</Gate>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="36" FrameHeight="42">
+      <Texture Path="structures/campaign" Name="frontgate1"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.1"/>
+        <Animation Name="open" StartFrame="1" EndFrame="1" FrameTime="0.1"/>
+      </Animations>
+      <Pivot>18,32</Pivot>
+    </Sprite>
+  </Sprites>
+  <BlockMovementWhileOperational>true</BlockMovementWhileOperational>
+</StructureData>

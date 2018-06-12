@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MineralData>
+  <DisplayName>Farmland</DisplayName>
+  <CollisionRadius>0.4</CollisionRadius>
+  <Mineral>Food</Mineral>
+  <StartingMinerals>1200</StartingMinerals>
+  <DeadFarmColor>130,20,0,255</DeadFarmColor>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <Structure>structure_farm</Structure>
+  <Sprites>
+    <Sprite FrameWidth="80" FrameHeight="54" IsDecal="true" Climate="Autumn">
+      <Texture Path="structures/windmill" Name="farmland"/>
+      <Pivot>40,28</Pivot>
+      <DrawElevation>0.001</DrawElevation>
+      <Animations>
+        <Animation Name="unclaimed1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="queued" StartFrame="1" EndFrame="1" FrameTime="0.1" Angle="0"/>
+        <Animation Name="construction" StartFrame="2" EndFrame="9" FrameTime="0.1" Angle="0"/>
+        <Animation Name="built" StartFrame="0" EndFrame="0" FrameTime="0.15" Angle="0"/>
+        <Animation Name="deadpig" StartFrame="10" EndFrame="10" FrameTime="0.15" Angle="0"/>
+        <Animation Name="barren" StartFrame="11" EndFrame="11" FrameTime="0.15" Angle="0"/>
+      </Animations>
+    </Sprite>
+    <Sprite FrameWidth="80" FrameHeight="54" IsDecal="true" Climate="Snowy">
+      <Texture Path="structures/windmill" Name="farmland_snow"/>
+      <Pivot>40,28</Pivot>
+      <DrawElevation>0.001</DrawElevation>
+      <Animations>
+        <Animation Name="unclaimed1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="queued" StartFrame="1" EndFrame="1" FrameTime="0.1" Angle="0"/>
+        <Animation Name="construction" StartFrame="2" EndFrame="9" FrameTime="0.1" Angle="0"/>
+        <Animation Name="built" StartFrame="0" EndFrame="0" FrameTime="0.15" Angle="0"/>
+        <Animation Name="deadpig" StartFrame="10" EndFrame="10" FrameTime="0.15" Angle="0"/>
+        <Animation Name="barren" StartFrame="11" EndFrame="11" FrameTime="0.15" Angle="0"/>
+      </Animations>
+    </Sprite>
+    <Sprite FrameWidth="80" FrameHeight="54" IsDecal="true" Climate="Desert">
+      <Texture Path="structures/windmill" Name="farmland_desert"/>
+      <Pivot>40,28</Pivot>
+      <DrawElevation>0.001</DrawElevation>
+      <Animations>
+        <Animation Name="unclaimed1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="unclaimed3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle1" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle2" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="idle3" StartFrame="12" EndFrame="27" FrameTime="0.1" Angle="0"/>
+        <Animation Name="queued" StartFrame="1" EndFrame="1" FrameTime="0.1" Angle="0"/>
+        <Animation Name="construction" StartFrame="2" EndFrame="9" FrameTime="0.1" Angle="0"/>
+        <Animation Name="built" StartFrame="0" EndFrame="0" FrameTime="0.15" Angle="0"/>
+        <Animation Name="deadpig" StartFrame="10" EndFrame="10" FrameTime="0.15" Angle="0"/>
+        <Animation Name="barren" StartFrame="11" EndFrame="11" FrameTime="0.15" Angle="0"/>
+      </Animations>
+    </Sprite>
+    <Sprite FrameWidth="24" FrameHeight="22">
+      <Texture Path="structures/windmill" Name="windmill_field_crop_sheet"/>
+      <Pivot>12,16</Pivot>
+      <DrawElevation>0.000</DrawElevation>
+      <Animations>
+        <Animation Name="wheat1" StartFrame="0" EndFrame="0" FrameTime="0.08" Angle="0"/>
+        <Animation Name="wheat2" StartFrame="1" EndFrame="1" FrameTime="0.08" Angle="0"/>
+        <Animation Name="wheat3" StartFrame="2" EndFrame="2" FrameTime="0.08" Angle="0"/>
+        <Animation Name="wheat4" StartFrame="3" EndFrame="3" FrameTime="0.08" Angle="0"/>
+      </Animations>
+    </Sprite>
+  </Sprites>
+</MineralData>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>Unit_Campfire_Name</DisplayName>
+  <EditorCategory>Gameplay</EditorCategory>
+  <Description>This be like, my home and all that.</Description>
+  <Health>50</Health>
+  <Traits/>
+  <CanProxy>true</CanProxy>
+  <BuildTime>10</BuildTime>
+  <BuildCost>10</BuildCost>
+  <BuildHealTime>1</BuildHealTime>
+  <TerritoryRadius>6</TerritoryRadius>
+  <CanSell>false</CanSell>
+  <CanQueue>false</CanQueue>
+  <CanStim>true</CanStim>
+  <Refinery>true</Refinery>
+  <RevealOnDeath>true</RevealOnDeath>
+  <BuildOnMineral>true</BuildOnMineral>
+  <BlockMovement>true</BlockMovement>
+  <DecayTime>0.5</DecayTime>
+  <ObscuresOtherEntities>false</ObscuresOtherEntities>
+  <SpawnOffset>2,2</SpawnOffset>
+  <Tiles>
+    <Tile>0,0</Tile>
+    <Tile>0,1</Tile>
+    <Tile>1,0</Tile>
+    <Tile>1,1</Tile>
+  </Tiles>
+  <EntitySoundPrefix></EntitySoundPrefix>
+  <HealthBarYOffset>30</HealthBarYOffset>
+  <VisibilityRange>4</VisibilityRange>
+  <Sprites>
+  </Sprites>
+  <Behaviors>
+    <Refinery ActiveDuringBuild="false" Adjacent="true" HarvestCount="1" HarvestTime="1" AlwaysActive="true"/>
+    <Production ProductionData="skunk" MaxSpawnedAtOnce="1" AlwaysActive="true"/>
+  </Behaviors>
+  <Sprites/>
+  <Events>
+    <Event Type="OnCollision">
+      <Scope Target="Other" TargetEnemy="false" TargetNonCommander="false">
+        <Action Type="Push" Time="0" Data="OnSell"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_building_loop" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+        <Action Type="CreateParticleSystem" Data="envSmokeSmallEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope>
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildNearlyComplete">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HQconstructionEndPSystem"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/campfire_finish"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_building_loop"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBuildComplete">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="envFireGlow" Attach="true"/>
+        <Action Type="CreateParticleSystem" Data="envFireBigEmitter" Attach="true"/>
+        <Action Type="CreateParticleSystem" Data="envEmbersBigEmitter" Attach="true"/>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_idle_loop" Value="1" AdjustForSimulationSpeed="false"/>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_meat_loop" Value="1" AdjustForSimulationSpeed="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="hqdestroyedbasepsystem"/>
+        <Action Type="ScreenShake" Value="1" Time="1.0" IgnoreArmyId="true"/>
+        <Action Type="ControllerRumble" Value="1" Time="0.5" IgnoreArmyId="true"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/campfire_destroy"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_building_loop"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_idle_loop"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_meat_loop"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_structure"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_building_loop"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_idle_loop"/>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_meat_loop"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnMineOut">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/03_quartermaster/campfire_meat_loop"/>
+      </Scope>
+    </Event>
+  </Events>
+</StructureData>

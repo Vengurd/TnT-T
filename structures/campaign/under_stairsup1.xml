@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StructureData>
+  <DisplayName>underground stairsup 1</DisplayName>
+  <EditorCategory>Campaign</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <Portal>true</Portal>
+  <VisibilityRange>-1</VisibilityRange>
+  <Sprites>
+    <Sprite FrameWidth="42" FrameHeight="56" SelectRandomGroup="0" IsDecal="true">
+      <Texture Path="structures/campaign" Name="under_stairsup1"/>
+      <Pivot>30,51</Pivot>
+      <Animations>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>false</BlockMovement>
+</StructureData>
