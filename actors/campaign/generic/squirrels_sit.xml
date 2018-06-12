@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t1 squirrel sit</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/squirrel/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>13</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="28" FrameHeight="32">
+      <Texture Path="actors/campaign/generic" Name="squirrels_crate"/>
+      <TintMap Path="actors/campaign/generic" Name="squirrels_crate_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>14,28</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+  </Events>
+</ActorData>

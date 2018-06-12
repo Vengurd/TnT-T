@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <BulletData>
+    <Speed>20</Speed>
+    <Range>4</Range>
+    <Texture Path="bullets" Name="tracer_minigun0"/>
+    <Collide>true</Collide>
+    <Homing>true</Homing>
+    <AllowFriendlyFire>false</AllowFriendlyFire>
+    <Events>
+      <Event Type="OnSpawn">
+        <Scope>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/badger/sfx/minigun_fire" Value="1"/>
+          <Action Type="CreateParticleSystem" Data="MuzzleFlashLargeEmitter"/>
+          <Action Type="CreateParticleSystem" Data="BulletCasingSmallEmitter"/>
+        </Scope>
+      </Event>
+      <Event Type="OnDeath">
+        <Scope Target="Other">
+          <Action Type="Damage" Data="Bullet" Value="1"/>
+        </Scope>
+        <Scope>
+          <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+          <Action Type="PlaySound" Data="event:/sfx/unit/actors/t3/badger/sfx/impact" Value="1"/>
+          <Action Type="Remove"/>
+        </Scope>
+      </Event>
+    </Events>
+  </BulletData>

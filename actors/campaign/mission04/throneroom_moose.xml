@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>throne room moose</DisplayName>
+  <EditorCategory>mission04</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <EntitySoundPrefix>event:/sfx/story/04_archimedes/hub/obj_moher_</EntitySoundPrefix>
+  <HealthBarYOffset>64</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="101" FrameHeight="128" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/generic" Name="throneroom_moose"/>
+      <Pivot>53,95</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="15" FrameTime="0.1" Angle="0">
+          <Events>
+            <Event Type="OnFrame" Time="13">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/story/04_archimedes/hub/obj_moher_splat" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+<DrawShadow>false</DrawShadow>
+</ActorData>

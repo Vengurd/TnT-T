@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BulletData>
+  <Texture Path="bullets" Name="tracer_pistol"/>
+  <Collide>false</Collide>
+  <Homing>true</Homing>
+  <AllowFriendlyFire>false</AllowFriendlyFire>
+  <Speed>20</Speed>
+  <Lifetime>0.2</Lifetime>
+  <Events>
+    <Event Type="OnDeath">
+      <Scope Target="Other">
+        <Action Type="Damage" Data="Ricochet" Value="1"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="DamageEmitter"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/shared/impact/gun" Value="1"/>
+        <Action Type="Remove"/>
+      </Scope>
+    </Event>
+  </Events>
+</BulletData>

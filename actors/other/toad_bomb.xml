@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>Toad</DisplayName>
+  <Damage>12</Damage>
+  <Health>6</Health>
+  <Traits>
+    <Trait>summon</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <CanStim>false</CanStim>
+  <CanProxy>true</CanProxy>
+  <FormationPriority>1</FormationPriority>
+  <DecayTime>0</DecayTime>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/toad/vo/</EntitySoundPrefix>
+  <FootstepInterval>0.4</FootstepInterval>
+  <HealthBarYOffset>18</HealthBarYOffset>
+  <SlowingRadius>0</SlowingRadius>
+  <Sprites>
+    <Sprite FrameWidth="24" FrameHeight="24">
+      <Texture Path="actors" Name="toad"/>
+      <TintMap Path="actors" Name="toad_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="4" EndFrame="9" FrameTime="0.08" Angle="0"/>
+      </Animations>
+      <Pivot>12,22</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnLand">
+      <Scope>
+        <Action Type="Die"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/t1/toad/sfx/explode" Value="1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,-1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,0"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="-1,0,1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,-1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,0"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="0,0,1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,-1"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,0"/>
+        <Action Type="CreateParticleSystem" Data="expToadPSystem" Offset="1,0,1"/>
+      </Scope>
+      <Scope TileRadius="1.75" TargetFriendly="false" TargetAir = "false">
+        <Action Type="DamageInstant" Value="1"/>
+      </Scope>
+      <Scope TileRadius="0" TargetRemovableDecor="true">
+        <Action Type="Remove"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="PlayVocalSound" Data="death" Value="4"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/shared/deathsplat_sml" Value="1"/>
+      </Scope>
+      <Scope FlatGroundOnly="true">
+        <Action Type="CreateDecal" Data="Blastmark"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSpawn">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="TracerArtilleryTrailEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

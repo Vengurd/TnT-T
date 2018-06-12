@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>misc musicians</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <Sprites>
+    <Sprite FrameWidth="42" FrameHeight="42">
+      <Texture Path="actors/campaign/generic" Name="musicians"/>
+      <TintMap Path="actors/campaign/generic" Name="musicians_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="11" FrameTime="0.08" Angle="0"/>
+      </Animations>
+      <Pivot>21,31</Pivot>
+    </Sprite>
+  </Sprites>
+</ActorData>

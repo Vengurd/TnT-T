@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>tavern ferret idle</DisplayName>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t2/ferret/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>21</HealthBarYOffset>
+  <EditorCategory>mission01</EditorCategory>
+  <Sprites>
+    <Sprite FrameWidth="26" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/mission01" Name="mission01_ferrets"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="8" EndFrame="11" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>13,20</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="26" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/mission01" Name="mission01_ferrets"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="12" EndFrame="15" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>13,20</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>Lizard</DisplayName>
+  <Damage>3</Damage>
+  <Health>7</Health>
+  <Traits>
+    <Trait>spear</Trait>
+    <Trait>swift</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <CanStim>true</CanStim>
+  <CanProxy>false</CanProxy>
+  <FormationPriority>1</FormationPriority>
+  <DecayTime>0</DecayTime>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/lizard/vo/</EntitySoundPrefix>
+  <FootstepInterval>0.2</FootstepInterval>
+  <HealthBarYOffset>17</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="32" FrameHeight="32">
+      <Texture Path="actors" Name="lizard"/>
+      <TintMap Path="actors" Name="lizard_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2" Angle="0"/>
+        <Animation Name="run" StartFrame="4" EndFrame="9" FrameTime="0.08" Angle="0"/>
+        <Animation Name="attackidle" StartFrame="10" EndFrame="10" FrameTime="0.08" Angle="0"/>
+        <Animation Name="cast" StartFrame="11" EndFrame="17" FrameTime="0.08" Angle="0" Loop="0" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="death" StartFrame="36" EndFrame="36" FrameTime="0.08" Angle="0" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="swim_idle" StartFrame="18" EndFrame="21" FrameTime="0.2" Angle="0"/>
+        <Animation Name="swim_run" StartFrame="22" EndFrame="27" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_attackidle" StartFrame="28" EndFrame="28" FrameTime="0.08"/>
+        <Animation Name="swim_cast" StartFrame="29" EndFrame="35" FrameTime="0.08" Angle="0" Loop="0" PauseOnComplete="true" CanInterrupt="false"/>
+      </Animations>
+      <Pivot>16,30</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Formation TargetDistance="10000" DestinationTolerance="0.2" TargetWeapon="true"/>
+    <Idle/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnOrder">
+      <Scope LocalFaction="true">
+        <Action Type="PlayVocalSound" Data="orders" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamage">
+      <Scope>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamageEnvironment">
+      <Scope>
+        <Action Type="PlayVocalSound" Data="hurt" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealTimer" Time="5">
+      <Scope InTerritory="true">
+        <Action Type="HealPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="UnitDeathSmallPSystem"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/shared/deathsplat_sml" Value="1"/>
+        <Action Type="PlayVocalSound" Data="death" Value="4"/>
+      </Scope>
+    </Event>
+    <Event Type="OnPoisonStart">
+      <Scope>
+        <Action Type="PlayVocalSound" Data="hurt" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFrozen">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="UnitFrozenSmallPSystem"/>
+        <Action Type="PlaySound" Data="death" Value="4"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/unit_freeze_death" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSpawn">
+      <Scope LocalTeamOnly="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="spawn" Value="0"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="UnitSpawnEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSold">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="UnitSoldEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSellButtonPressed">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/general/sell_unit"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBattlecry">
+      <Scope>
+        <Action Type="PlayBattleVocalSound" Data="battlecry" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnKill">
+      <Scope>
+        <Action Type="PlayVictorySound"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSalute">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlaySingleVocalSound" Data="salute" Value="0"/>
+      </Scope>
+    </Event>
+    <Event Type="OnEnterWater">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="WaterEnterSmallEmitter" OffsetCenter="false"/>
+        <Action Type="CreateParticleSystem" Data="WaterAmbientSmallEmitter" Attach="true" OffsetCenter="false"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/shared/water_unit_enter" Value="1" Attenuation="25" MuteForVisibility="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnExitWater">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="WaterAmbientSmallEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

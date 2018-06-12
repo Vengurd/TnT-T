@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t2 snake armed</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t2/snake/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>19</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="30" FrameHeight="30">
+      <Texture Path="actors/campaign/generic" Name="snake_armed"/>
+      <TintMap Path="actors/campaign/generic" Name="snake_armed_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>15,20</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

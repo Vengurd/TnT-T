@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>musician lizard</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/lizard/vo/</EntitySoundPrefix>
+  <Sprites>
+    <Sprite FrameWidth="23" FrameHeight="23">
+      <Texture Path="actors/campaign/generic" Name="musician_lizard"/>
+      <TintMap Path="actors/campaign/generic" Name="musician_lizard_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="11" FrameTime="0.08" Angle="0"/>
+      </Animations>
+      <Pivot>9,16</Pivot>
+    </Sprite>
+  </Sprites>
+</ActorData>
