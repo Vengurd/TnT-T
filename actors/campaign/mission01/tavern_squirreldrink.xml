@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>tavern squirrel drink</DisplayName>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EditorCategory>mission01</EditorCategory>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/squirrel/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>13</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="16" FrameHeight="16" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/mission01" Name="mission01_squirrels"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="8" EndFrame="11" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>8,13</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="16" FrameHeight="16" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/mission01" Name="mission01_squirrels"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="12" EndFrame="15" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>8,13</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="16" FrameHeight="16" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/mission01" Name="mission01_squirrels"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="16" EndFrame="19" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>8,13</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

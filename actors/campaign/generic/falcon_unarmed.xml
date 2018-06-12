@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t2 falcon unarmed</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t2/falcon/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>17</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="29" FrameHeight="29">
+      <Texture Path="actors/campaign/generic" Name="falcon_unarmed"/>
+      <TintMap Path="actors/campaign/generic" Name="falcon_unarmed_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>15,24</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

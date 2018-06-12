@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>The Quartermaster</DisplayName>
+  <IsCommander>true</IsCommander>
+  <Inertia>1000</Inertia>
+  <Speed>4</Speed>
+  <Acceleration>100</Acceleration>
+  <Friction>12</Friction>
+  <DecayTime>6</DecayTime>
+  <Health>20</Health>
+  <CanExceedMaxHealth>false</CanExceedMaxHealth>
+  <SuppressionHealthPercentage>0</SuppressionHealthPercentage>
+  <MaxLevel>9</MaxLevel>
+  <HealthBonusPerLevel>10</HealthBonusPerLevel>
+  <SpawnInvincibleTime>3</SpawnInvincibleTime>
+  <FootstepInterval>0.4</FootstepInterval>
+  <CollisionRadius>0.4</CollisionRadius>
+  <SlowingRadius>0</SlowingRadius>
+  <DirectToThrust>true</DirectToThrust>
+  <Traits>
+    <Trait>commandersight</Trait>
+    <Trait>stealth</Trait>
+    <Trait>swift</Trait>
+  </Traits>
+  <SkeletonTexture Path="actors/skeletons" Name="skeleton"/>
+  <EntitySoundPrefix>event:/vo/military/</EntitySoundPrefix>
+  <EntityStringPrefix>QM_</EntityStringPrefix>
+  <FootstepCue>event:/sfx/unit/actors/shared/foot_commander</FootstepCue>
+  <HealthBarYOffset>36</HealthBarYOffset>
+  <BurrowData>
+    <AllowEntryInterrupt>true</AllowEntryInterrupt>
+    <AllowExitInterrupt>false</AllowExitInterrupt>
+    <EntryTime>2</EntryTime>
+    <ExitTime>0.5</ExitTime>
+    <StartsActive>false</StartsActive>
+  </BurrowData>
+  <Sprites>
+    <Sprite FrameWidth="72" FrameHeight="72">
+      <Texture Path="actors/" Name="commander_military"/>
+      <TintMap Path="actors/" Name="commander_military_tint"/>
+      <OverlayMap Path="actors/" Name="commander_military_overlay"/>
+      <Animations>
+        <Animation Name="run" StartFrame="22" EndFrame="31" FrameTime="0.08" Angle="0"/>
+        <Animation Name="idle" StartFrame="0" EndFrame="9" FrameTime="0.08" Angle="0"/>
+        <Animation Name="rallyStand" StartFrame="10" EndFrame="19" FrameTime="0.08" Angle="0"/>
+        <Animation Name="rallyRun" StartFrame="32" EndFrame="41" FrameTime="0.08" Angle="0"/>
+        <Animation Name="attackStand" StartFrame="20" EndFrame="21" FrameTime="0.08" Angle="0" CanInterrupt="false" PauseOnComplete="true"/>
+        <Animation Name="attackRun" StartFrame="42" EndFrame="46" FrameTime="0.08" Angle="0" CanInterrupt="false"/>
+        <Animation Name="dig" StartFrame="47" EndFrame="51" FrameTime="0.08" Angle="0"/>
+        <Animation Name="startBuild" StartFrame="10" EndFrame="19" FrameTime="0.08" Angle="0"/>
+        <Animation Name="emerge" StartFrame="52" EndFrame="56" FrameTime="0.08" Angle="0" CanInterrupt="false"/>
+        <Animation Name="stoprunning" StartFrame="75" EndFrame="76" FrameTime="0.12" Angle="0" CanInterrupt="false"/>
+        <Animation Name="startrunning" StartFrame="73" EndFrame="74" FrameTime="0.12" Angle="0" CanInterrupt="false"/>
+        <Animation Name="skid" StartFrame="77" EndFrame="78" FrameTime="0.1" Angle="0" CanInterrupt="false"  PauseOnComplete="true"/>
+        <Animation Name="attack" StartFrame="22" EndFrame="22" FrameTime="0.08"/>
+        <Animation Name="death" StartFrame="57" EndFrame="72" FrameTime="0.08" Angle="0" Loop="0" CanInterrupt="false" PauseOnComplete="true"/>
+        <Animation Name="swim_run" StartFrame=" 102" EndFrame="111" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_idle" StartFrame="80" EndFrame="89" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_rallyStand" StartFrame="90" EndFrame="99" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_rallyRun" StartFrame="112" EndFrame="121" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_attackStand" StartFrame="100" EndFrame="101" FrameTime="0.08" Angle="0" CanInterrupt="false" PauseOnComplete="true"/>
+        <Animation Name="swim_attackRun" StartFrame="122" EndFrame="126" FrameTime="0.08" Angle="0" CanInterrupt="false"/>
+        <Animation Name="swim_startBuild" StartFrame="100" EndFrame="101" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_stoprunning" StartFrame="155" EndFrame="156" FrameTime="0.12" Angle="0" CanInterrupt="false" PauseOnComplete="true"/>
+        <Animation Name="swim_startrunning" StartFrame="153" EndFrame="154" FrameTime="0.12" Angle="0" CanInterrupt="false"/>
+        <Animation Name="swim_skid" StartFrame="157" EndFrame="158" FrameTime="0.1" Angle="0" CanInterrupt="false"  PauseOnComplete="true"/>
+        <Animation Name="swim_attack" StartFrame="22" EndFrame="22" FrameTime="0.08"/>
+        <Animation Name="swim_death" StartFrame="137" EndFrame="152" FrameTime="0.08" Angle="0" Loop="0" CanInterrupt="false" PauseOnComplete="true"/>
+      </Animations>
+      <Pivot>36,70</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Player/>
+  </Behaviors>
+  <Events>
+    <Event Type="OnHealTimer" Time="3">
+      <Scope>
+        <Action Type="HealPercentPerSecond" Value="0.5"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDeath">
+            <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/com_death" Value="1"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="CommanderDeathEmitter"/>
+        <Action Type="PlayVocalSound" Data="in_world/death" Value="4"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFrozen">
+            <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/sfx/general/com_death" Value="1"/>
+      </Scope>
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="CommanderDeathEmitter"/>
+        <Action Type="PlayVocalSound" Data="in_world/death" Value="4"/>
+        <Action Type="ClearStatusEffect" Data="status_poisoned"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/unit_freeze_death" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnPoisonStart">
+      <Scope>
+        <Action Type="PlayVocalSound" Data="in_world/hurt" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFrozenStart">
+      <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/unit_freeze_onset" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFrozenDamage">
+      <Scope LocalFaction="true">
+        <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/unit_freeze_end" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurningStart">
+      <Scope LocalFaction="true">
+        <Action Type="PlayPersistentSound" Data="event:/sfx/story/02_hopper/desert_sizzle_loop" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurningStop">
+      <Scope LocalFaction="true">
+        <Action Type="StopPersistentSound" Data="event:/sfx/story/02_hopper/desert_sizzle_loop"/>
+        <Action Type="PlaySound" Data="event:/sfx/story/02_hopper/desert_sizzle_end" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnRespawn">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="CommanderRespawnEmitter" OffsetCenter="false"/>
+        <Action Type="PlayAnimation" Data="emerge"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamage">
+      <Scope LocalFaction="true">
+        <Action Type="ScreenShake" Value="0.5" Time="0.15"/>
+        <Action Type="ControllerRumbleAdditive" Value="0.5" Time="0.25"/>
+      </Scope>
+      <Scope>
+        <Action Type="PlayVocalSound" Data="in_world/hurt" Value="1"/>
+        <Action Type="ResetHealTimer"/>
+      </Scope>
+    </Event>
+    <Event Type="OnDamageEnvironment">
+      <Scope>
+        <Action Type="PlayVocalSound" Data="in_world/hurt" Value="1"/>
+      </Scope>
+    </Event>
+    <Event Type="OnFootstep">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="FootstepEmitter" OffsetCenter="false"/>
+        <Action Type="CreateDecal" Data="Footprint_md"/>
+      </Scope>
+    </Event>
+    <Event Type="OnSkid">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="SkidmarkEmitter" OffsetCenter="false"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurrowHomeStart">
+      <Scope>
+        <Action Type="PlayPersistentSound" Data="event:/sfx/general/com_burrow_in" Value="1" AdjustForVisibility="true"/>
+        <Action Type="CreateParticleSystem" Data="commanderBurrowPSystem" OffsetCenter="false" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurrowHomeStop">
+      <Scope>
+        <Action Type="StopPersistentSound" Data="event:/sfx/general/com_burrow_in"/>
+        <Action Type="RemoveAttachedParticles"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurrowHome">
+      <Scope>
+        <Action Type="PlaySound" Data="event:/sfx/general/com_burrow_out" Value="1" MuteForVisibility="true"/>
+        <Action Type="RemoveAttachedParticles"/>
+        <Action Type="CreateParticleSystem" Data="commanderEmergePSystem" OffsetCenter="false"/>
+        <Action Type="PlayAnimation" Data="emerge"/>
+        <Action Type="CreateDecal" Data="burrow_emerge"/>
+      </Scope>
+    </Event>
+    <Event Type="OnBurrowHomeConfirmed">
+      <Scope>
+        <Action Type="CreateDecal" Data="burrow_emerge" />
+      </Scope>
+    </Event>
+    <Event Type="OnEnterWater">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="WaterEnterMediumEmitter" OffsetCenter="false"/>
+        <Action Type="CreateParticleSystem" Data="WaterAmbientMediumEmitter" Attach="true" OffsetCenter="false"/>
+        <Action Type="PlaySound" Data="event:/sfx/unit/actors/shared/water_com_enter" Value="1" Attenuation="25" MuteForVisibility="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnExitWater">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="WaterAmbientMediumEmitter"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStart">
+      <Scope>
+        <Action Type="CreateParticleSystem" Data="HealEmitter" Attach="true"/>
+      </Scope>
+    </Event>
+    <Event Type="OnHealStop">
+      <Scope>
+        <Action Type="RemoveAttachedParticles" Data="HealEmitter"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

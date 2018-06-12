@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>crypt revolutionary 1</DisplayName>
+  <EditorCategory>mission04</EditorCategory>
+  <MapColor>50,50,50,255</MapColor>
+  <EntitySoundPrefix>event:/sfx/unit/actors/other/pig/vo/</EntitySoundPrefix>
+  <Sprites>
+	  <Sprite FrameWidth="21" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="decor/underground/mission04_crypt" Name="crypt_revolutionary1"/>
+      <Pivot>11,22</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2" Angle="0"/>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+<DrawShadow>false</DrawShadow>
+</ActorData>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>distillery squirrelpassedout</DisplayName>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EditorCategory>mission01</EditorCategory>
+  <EntitySoundPrefix>event:/sfx/story/01_bellafide/hub/obj_drunksquirrel_</EntitySoundPrefix>
+  <HealthBarYOffset>13</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="28" FrameHeight="19" IsDecal="false">
+      <Texture Path="actors/campaign/mission01" Name="distillery_squirrelpassedout"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>14,10</Pivot>
+    </Sprite>
+  </Sprites>
+</ActorData>

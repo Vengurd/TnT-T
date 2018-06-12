@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>throne room servant 2</DisplayName>
+  <EditorCategory>mission04</EditorCategory>
+  <MapColor>0,45,0,255</MapColor>
+  <EntitySoundPrefix>event:/sfx/story/04_archimedes/hub/obj_steward_</EntitySoundPrefix>
+  <Sprites>
+    <Sprite FrameWidth="22" FrameHeight="30" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/generic" Name="clergyservant2"/>
+      <Pivot>14,24</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.2" Angle="0"/>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>true</BlockMovement>
+<DrawShadow>false</DrawShadow>
+</ActorData>

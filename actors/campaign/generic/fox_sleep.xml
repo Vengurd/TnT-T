@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t3 fox sleep</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/story/02_hopper/hub/obj_tent_snoring</EntitySoundPrefix>
+  <Sprites>
+    <Sprite FrameWidth="44" FrameHeight="44">
+      <Texture Path="actors/campaign/generic" Name="fox_sleep"/>
+      <TintMap Path="actors/campaign/generic" Name="fox_sleep_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.2" Angle="0"/>
+      </Animations>
+      <Pivot>22,22</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+  </Events>
+</ActorData>

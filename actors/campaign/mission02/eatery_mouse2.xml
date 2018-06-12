@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>eatery mouse2</DisplayName>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/story/02_hopper/hub/obj_operator_</EntitySoundPrefix>
+  <EditorCategory>mission02</EditorCategory>
+  <Sprites>
+    <Sprite FrameWidth="16" FrameHeight="13" SelectRandomGroup="0">
+      <Texture Path="decor/underground/mission02_railroad" Name="mouse2"/>
+      <Pivot>8,6</Pivot>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0"/>
+      </Animations>
+    </Sprite>
+  </Sprites>
+  <Events>
+  </Events>
+</ActorData>

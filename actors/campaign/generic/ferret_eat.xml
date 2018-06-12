@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t2 ferret eat</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t2/ferret/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>15</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="24" FrameHeight="24">
+      <Texture Path="actors/campaign/generic" Name="ferret_eat"/>
+      <TintMap Path="actors/campaign/generic" Name="ferret_eat_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="11" FrameTime="0.1" Angle="0"/>
+      </Animations>
+      <Pivot>12,17</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

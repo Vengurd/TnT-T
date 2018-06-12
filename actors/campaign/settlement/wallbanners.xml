@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>wall banners</DisplayName>
+  <CanFall>false</CanFall>
+<Collide>false</Collide>
+  <EditorCategory>tinted</EditorCategory>
+  <Sprites>
+    <Sprite FrameWidth="12" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/settlement" Name="wallbanner1"/>
+      <TintMap Path="actors/campaign/settlement" Name="wallbanner1"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.1"/>
+      </Animations>
+      <Pivot>11,5</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="12" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/settlement" Name="wallbanner2"/>
+      <TintMap Path="actors/campaign/settlement" Name="wallbanner2"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.1"/>
+      </Animations>
+      <Pivot>11,5</Pivot>
+    </Sprite>
+    <Sprite FrameWidth="12" FrameHeight="26" SelectRandomGroup="0">
+      <Texture Path="actors/campaign/settlement" Name="wallbanner3"/>
+      <TintMap Path="actors/campaign/settlement" Name="wallbanner3"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="0" FrameTime="0.1"/>
+      </Animations>
+      <Pivot>11,5</Pivot>
+    </Sprite>
+  </Sprites>
+  <BlockMovement>false</BlockMovement>
+  <DrawShadow>false</DrawShadow>
+</ActorData>

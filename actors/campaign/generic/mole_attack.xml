@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t1 mole attack</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t1/mole/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>15</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="28" FrameHeight="28">
+      <Texture Path="actors" Name="mole"/>
+      <TintMap Path="actors" Name="mole_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="13" EndFrame="18" FrameTime="0.08" Angle="0">
+          <Events>
+            <Event Type="OnFrame" Time="13">
+              <Scope>
+                <Action Type="PlaySound" Data="event:/sfx/story/03_quartermaster/hub/obj_molemining" Value="1" AdjustForVisibility="true" AdjustForSimulationSpeed="true"/>
+              </Scope>
+            </Event>
+          </Events>
+        </Animation>
+      </Animations>
+      <Pivot>14,27</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>t3 wolf map</DisplayName>
+  <EditorCategory>npc</EditorCategory>
+  <CanFall>false</CanFall>
+  <Collide>false</Collide>
+  <EntitySoundPrefix>event:/sfx/unit/actors/t3/wolf/vo/</EntitySoundPrefix>
+  <HealthBarYOffset>37</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="60" FrameHeight="60">
+      <Texture Path="actors/campaign/generic" Name="wolf_map"/>
+      <TintMap Path="actors/campaign/generic" Name="wolf_map_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="13" FrameTime="0.1" Angle="0"/>
+      </Animations>
+      <Pivot>19,40</Pivot>
+    </Sprite>
+  </Sprites>
+  <Events>
+    <Event Type="OnFidget">
+      <Scope LocalFactionOrObserver="true">
+        <Action Type="PlayVocalSoundWithBubble" Data="idle" Value="0"/>
+      </Scope>
+    </Event>
+  </Events>
+</ActorData>

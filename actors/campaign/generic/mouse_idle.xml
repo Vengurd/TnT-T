@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActorData>
+  <DisplayName>mouse idle</DisplayName>
+  <Damage>3</Damage>
+  <Health>12</Health>
+  <Gravity>-35</Gravity>
+  <Traits>
+    <Trait>berserker</Trait>
+    <Trait>swift</Trait>
+    <Trait></Trait>
+    <Trait></Trait>
+  </Traits>
+  <CanStim>true</CanStim>
+  <DecayTime>0</DecayTime>
+  <FormationPriority>0</FormationPriority>
+  <SkeletonTexture Path="actors/skeletons" Name="skeleton"/>
+  <EntitySoundPrefix>event:/sfx/story/02_hopper/hub/obj_operator_</EntitySoundPrefix>
+  <HealthBarYOffset>14</HealthBarYOffset>
+  <FootstepInterval>0.2</FootstepInterval>
+  <HealthBarYOffset>18</HealthBarYOffset>
+  <Sprites>
+    <Sprite FrameWidth="18" FrameHeight="18">
+      <Texture Path="actors" Name="mouse"/>
+      <TintMap Path="actors" Name="mouse_tint"/>
+      <Animations>
+        <Animation Name="idle" StartFrame="0" EndFrame="3" FrameTime="0.3" Angle="0"/>
+        <Animation Name="spawn" StartFrame="36" EndFrame="53" FrameTime="0.08" Angle="0" Loop="0" CanInterrupt="false"/>
+        <Animation Name="run" StartFrame="4" EndFrame="9" FrameTime="0.08" Angle="0"/>
+        <Animation Name="attack" StartFrame="11" EndFrame="15" FrameTime="0.08" Angle="0" Loop="0" CanInterrupt="false"/>
+        <Animation Name="attackidle" StartFrame="10" EndFrame="10" FrameTime="0.08" Angle="0"/>
+        <Animation Name="death" StartFrame="16" EndFrame="16" FrameTime="0.08" Angle="0" PauseOnComplete="true" CanInterrupt="false"/>
+        <Animation Name="swim_run" StartFrame="22" EndFrame="27" FrameTime="0.08" Angle="0"/>
+        <Animation Name="swim_idle" StartFrame="18" EndFrame="21" FrameTime="0.3" Angle="0"/>
+        <Animation Name="swim_attack" StartFrame="29" EndFrame="33" FrameTime="0.08" Angle="0" Loop="0" CanInterrupt="false"/>
+        <Animation Name="swim_attackidle" StartFrame="28" EndFrame="28" FrameTime="0.08" Angle="0"/>
+      </Animations>
+      <Pivot>9,17</Pivot>
+    </Sprite>
+  </Sprites>
+  <Behaviors>
+    <Idle/>
+  </Behaviors>
+  <Events>
+  </Events>
+</ActorData>
